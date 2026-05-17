@@ -695,6 +695,8 @@ a   { color: inherit; text-decoration: none; }
 .tag-halal     { background: rgba(46, 125, 50, 0.15);  color: #6fcf78; border: 1px solid rgba(111,207,120,0.2); }
 .tag-vegan     { background: rgba(85, 139, 47, 0.15);  color: #a8d97a; border: 1px solid rgba(168,217,122,0.2); }
 .tag-no-seafood{ background: rgba(201, 151, 58, 0.12); color: var(--gold); border: 1px solid var(--border); }
+.tag-hot       { background: rgba(211, 84, 0, 0.14);   color: #f0956a; border: 1px solid rgba(211,84,0,0.25); }
+.tag-cold      { background: rgba(41, 128, 185, 0.14); color: #7ec8e3; border: 1px solid rgba(41,128,185,0.25); }
 
 .menu-book-cta {
     margin-top: 72px;

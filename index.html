@@ -120,6 +120,56 @@
         </div>
     </section>
 
+    <!-- ========== RESERVATION CALENDAR ========== -->
+    <section class="airy-container" style="padding-top: 0;" data-nav="reserve">
+        <div class="cal-section fade-up">
+            <span class="section-label">Availability</span>
+            <div class="gold-rule"></div>
+            <h2 class="cal-heading">Reserve a Date</h2>
+            <p class="cal-subheading">Select a date to check availability and remaining pax.</p>
+
+            <div class="cal-widget">
+                <!-- Month navigation -->
+                <div class="cal-nav">
+                    <button class="cal-nav-btn" id="cal-prev" aria-label="Previous month">&#8592;</button>
+                    <span class="cal-month-label" id="cal-month-label"></span>
+                    <button class="cal-nav-btn" id="cal-next" aria-label="Next month">&#8594;</button>
+                </div>
+
+                <!-- Day-of-week headers -->
+                <div class="cal-grid cal-dow-row">
+                    <span>Sun</span><span>Mon</span><span>Tue</span>
+                    <span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                </div>
+
+                <!-- Date cells injected by JS -->
+                <div class="cal-grid cal-days" id="cal-days"></div>
+
+                <!-- Legend -->
+                <div class="cal-legend">
+                    <span class="cal-legend-item"><i class="cal-dot dot-available"></i>Available</span>
+                    <span class="cal-legend-item"><i class="cal-dot dot-limited"></i>Limited</span>
+                    <span class="cal-legend-item"><i class="cal-dot dot-full"></i>Full</span>
+                </div>
+
+                <!-- Detail panel shown after selecting a date -->
+                <div class="cal-detail" id="cal-detail" hidden>
+                    <div class="cal-detail-inner">
+                        <span class="cal-detail-date" id="cal-detail-date"></span>
+                        <span class="cal-detail-pax"  id="cal-detail-pax"></span>
+                        <a
+                            id="cal-book-btn"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn-primary cal-book-btn"
+                        >Book via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ========== CTA ========== -->
     <section class="cta airy-container">
         <span class="section-label">Reserve Your Table</span>
@@ -146,6 +196,151 @@
     </footer>
 
     <script type="module" src="app.js"></script>
+    <script>
+        /* ── RESERVATION CALENDAR ── */
+        (function () {
+            var MAX_PAX    = 60;
+            var today      = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            var viewYear  = today.getFullYear();
+            var viewMonth = today.getMonth();
+
+            var MONTHS = ["January","February","March","April","May","June",
+                          "July","August","September","October","November","December"];
+            var selectedDate = null;
+
+            function getRemainingPax(year, month, day) {
+                var seed = year * 10000 + (month + 1) * 100 + day;
+                var h = ((seed ^ 0xDEADBEEF) >>> 0);
+                h = Math.imul(h ^ (h >>> 16), 0x45d9f3b) >>> 0;
+                h = Math.imul(h ^ (h >>> 16), 0x45d9f3b) >>> 0;
+                h = (h ^ (h >>> 16)) >>> 0;
+                var pct = (h % 101) / 100;
+                var d = new Date(year, month, day).getDay();
+                if (d === 5 || d === 6) pct = pct * pct;
+                return Math.round(pct * MAX_PAX);
+            }
+
+            function getState(year, month, day) {
+                var date = new Date(year, month, day);
+                date.setHours(0,0,0,0);
+                if (date < today) return { state: "past",      pax: 0 };
+                var pax = getRemainingPax(year, month, day);
+                if (pax === 0)       return { state: "full",      pax: 0 };
+                if (pax <= 20)       return { state: "limited",   pax: pax };
+                                     return { state: "available", pax: pax };
+            }
+
+            function formatDate(year, month, day) {
+                var d = new Date(year, month, day);
+                var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+                return days[d.getDay()] + ", " + day + " " + MONTHS[month] + " " + year;
+            }
+
+            function renderCalendar() {
+                document.getElementById("cal-month-label").textContent =
+                    MONTHS[viewMonth] + " " + viewYear;
+
+                var grid = document.getElementById("cal-days");
+                grid.innerHTML = "";
+
+                var firstDow    = new Date(viewYear, viewMonth, 1).getDay();
+                var daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+                for (var i = 0; i < firstDow; i++) {
+                    var empty = document.createElement("div");
+                    empty.className = "cal-day empty";
+                    grid.appendChild(empty);
+                }
+
+                for (var d = 1; d <= daysInMonth; d++) {
+                    var info = getState(viewYear, viewMonth, d);
+                    var cell = document.createElement("div");
+                    cell.className = "cal-day " + info.state;
+                    cell.textContent = d;
+
+                    var isToday = (viewYear === today.getFullYear() &&
+                                   viewMonth === today.getMonth() &&
+                                   d === today.getDate());
+                    if (isToday) cell.classList.add("today");
+
+                    if (selectedDate &&
+                        selectedDate.y === viewYear &&
+                        selectedDate.m === viewMonth &&
+                        selectedDate.d === d) {
+                        cell.classList.add("selected");
+                    }
+
+                    if (info.state !== "past" && info.state !== "full") {
+                        (function (year, month, day, pax, cellEl) {
+                            cellEl.addEventListener("click", function () {
+                                selectedDate = { y: year, m: month, d: day };
+                                renderCalendar();
+                                showDetail(year, month, day, pax, "available_or_limited");
+                            });
+                        })(viewYear, viewMonth, d, info.pax, cell);
+                    } else if (info.state === "full") {
+                        (function (year, month, day, cellEl) {
+                            cellEl.addEventListener("click", function () {
+                                selectedDate = { y: year, m: month, d: day };
+                                renderCalendar();
+                                showDetail(year, month, day, 0, "full");
+                            });
+                        })(viewYear, viewMonth, d, cell);
+                    }
+
+                    grid.appendChild(cell);
+                }
+            }
+
+            function showDetail(year, month, day, pax, kind) {
+                var panel   = document.getElementById("cal-detail");
+                var dateEl  = document.getElementById("cal-detail-date");
+                var paxEl   = document.getElementById("cal-detail-pax");
+                var bookBtn = document.getElementById("cal-book-btn");
+
+                dateEl.textContent = formatDate(year, month, day);
+                panel.hidden = false;
+
+                if (kind === "full") {
+                    paxEl.textContent   = "Fully booked — no pax remaining.";
+                    bookBtn.textContent = "Fully Booked";
+                    bookBtn.classList.add("disabled");
+                    bookBtn.removeAttribute("href");
+                } else {
+                    var label = pax <= 20 ? "⚠️ Only " + pax + " pax remaining — book soon!"
+                                          : "✅ " + pax + " pax available";
+                    paxEl.textContent = label;
+                    bookBtn.textContent = "Book via WhatsApp";
+                    bookBtn.classList.remove("disabled");
+                    var msg = encodeURIComponent(
+                        "Hi, I'd like to make a reservation for " +
+                        formatDate(year, month, day) + ". How many pax are still available?"
+                    );
+                    bookBtn.href = "https://wa.me/60123456789?text=" + msg;
+                }
+            }
+
+            document.getElementById("cal-prev").addEventListener("click", function () {
+                viewMonth--;
+                if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+                selectedDate = null;
+                document.getElementById("cal-detail").hidden = true;
+                renderCalendar();
+            });
+
+            document.getElementById("cal-next").addEventListener("click", function () {
+                viewMonth++;
+                if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+                selectedDate = null;
+                document.getElementById("cal-detail").hidden = true;
+                renderCalendar();
+            });
+
+            renderCalendar();
+        })();
+    </script>
 
 </body>
 </html>

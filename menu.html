@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse our Halal Japanese BBQ menu. Filter by dietary needs — Halal, Vegan, or No Seafood.">
+    <title>Yakiniku Jom | Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Cormorant+Garamond:wght@400;600&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <header class="site-header scrolled" id="site-header">
+        <nav class="site-nav">
+            <a href="index.html" class="nav-logo">Yakiniku Jom</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="menu.html" class="nav-link active">Menu</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ========== PAGE HERO ========== -->
+    <div class="page-hero">
+        <span class="section-label">Explore</span>
+        <div class="gold-rule"></div>
+        <h1>Our Menu</h1>
+        <p class="menu-subtitle">Tap a filter to find dishes that match your dietary needs.</p>
+    </div>
+
+    <!-- ========== MENU CONTENT ========== -->
+    <main class="airy-container" style="padding-top: 0;">
+
+        <div class="filter-bar" id="filter-bar">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="halal">✅ Halal</button>
+            <button class="filter-btn" data-filter="vegan">🌿 Vegan</button>
+            <button class="filter-btn" data-filter="no-seafood">🚫 No Seafood</button>
+        </div>
+
+        <div class="menu-grid" id="menu-grid">
+            <p class="no-results" id="no-results">No dishes match this filter. Try a different one.</p>
+
+            <div class="menu-card fade-up" data-tags="halal no-seafood">
+                <img src="images/wagyu.png" alt="Premium wagyu beef slices on a wooden plate" class="menu-card-image">
+                <div class="menu-card-body">
+                    <h3>Premium Wagyu Beef</h3>
+                    <p class="menu-card-desc">Thinly sliced A5 wagyu with beautiful marbling. Grill for 10 seconds each side.</p>
+                    <p class="menu-card-price">RM 88</p>
+                    <div class="menu-card-tags">
+                        <span class="tag tag-halal">Halal</span>
+                        <span class="tag tag-no-seafood">No Seafood</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card fade-up" data-tags="halal no-seafood">
+                <img src="images/chicken.png" alt="Marinated chicken thigh pieces ready for the grill" class="menu-card-image">
+                <div class="menu-card-body">
+                    <h3>Garlic Sesame Chicken</h3>
+                    <p class="menu-card-desc">Juicy chicken thigh marinated in garlic, sesame oil, and a touch of chilli.</p>
+                    <p class="menu-card-price">RM 38</p>
+                    <div class="menu-card-tags">
+                        <span class="tag tag-halal">Halal</span>
+                        <span class="tag tag-no-seafood">No Seafood</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card fade-up" data-tags="halal no-seafood">
+                <img src="images/lamb.png" alt="Tender lamb chops with herb marinade on a wooden board" class="menu-card-image">
+                <div class="menu-card-body">
+                    <h3>Herb-Crusted Lamb Chops</h3>
+                    <p class="menu-card-desc">Tender New Zealand lamb with rosemary and garlic. Best grilled medium-rare.</p>
+                    <p class="menu-card-price">RM 68</p>
+                    <div class="menu-card-tags">
+                        <span class="tag tag-halal">Halal</span>
+                        <span class="tag tag-no-seafood">No Seafood</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card fade-up" data-tags="halal">
+                <img src="images/seafood.png" alt="Tiger prawns and scallops on a plate" class="menu-card-image">
+                <div class="menu-card-body">
+                    <h3>Tiger Prawns &amp; Scallops</h3>
+                    <p class="menu-card-desc">Fresh jumbo prawns and Hokkaido scallops. Grill with butter and a squeeze of lemon.</p>
+                    <p class="menu-card-price">RM 58</p>
+                    <div class="menu-card-tags">
+                        <span class="tag tag-halal">Halal</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card fade-up" data-tags="halal vegan no-seafood">
+                <img src="images/vegetables.png" alt="Grilled seasonal vegetables on a ceramic plate" class="menu-card-image">
+                <div class="menu-card-body">
+                    <h3>Grilled Seasonal Vegetables</h3>
+                    <p class="menu-card-desc">Shiitake mushrooms, bell peppers, zucchini, and corn with ponzu drizzle.</p>
+                    <p class="menu-card-price">RM 22</p>
+                    <div class="menu-card-tags">
+                        <span class="tag tag-halal">Halal</span>
+                        <span class="tag tag-vegan">Vegan</span>
+                        <span class="tag tag-no-seafood">No Seafood</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-card fade-up" data-tags="halal vegan no-seafood">
+                <img src="images/tofu.png" alt="Grilled tofu steak with sesame glaze" class="menu-card-image">
+                <div class="menu-card-body">
+                    <h3>Sesame Tofu Steak</h3>
+                    <p class="menu-card-desc">Firm tofu glazed with sweet sesame sauce and topped with nori and spring onions.</p>
+                    <p class="menu-card-price">RM 24</p>
+                    <div class="menu-card-tags">
+                        <span class="tag tag-halal">Halal</span>
+                        <span class="tag tag-vegan">Vegan</span>
+                        <span class="tag tag-no-seafood">No Seafood</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="menu-book-cta fade-up">
+            <p>Seen something you like?</p>
+            <a
+                href="https://wa.me/60123456789?text=Hi%2C%20I%27d%20like%20to%20ask%20about%20the%20menu%20and%20make%20a%20booking!"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary"
+            >
+                Book a Table
+            </a>
+        </div>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Yakiniku Jom &nbsp;·&nbsp; All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

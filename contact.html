@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Visit Yakiniku Jom — Halal Japanese BBQ in Kuala Lumpur. Find our operating hours, location, and directions.">
+    <title>Yakiniku Jom | Contact</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Cormorant+Garamond:wght@400;600&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <header class="site-header scrolled" id="site-header">
+        <nav class="site-nav">
+            <a href="index.html" class="nav-logo">Yakiniku Jom</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="menu.html" class="nav-link">Menu</a>
+                <a href="contact.html" class="nav-link active">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ========== HERO IMAGE ========== -->
+    <div class="contact-hero">
+        <img
+            src="images/interior.png"
+            alt="Warm and cozy interior of Yakiniku Jom restaurant with wooden tables and lanterns"
+            class="contact-hero-image"
+        >
+    </div>
+
+    <!-- ========== PAGE TITLE ========== -->
+    <div class="page-hero" style="padding-top: 56px;">
+        <span class="section-label">Find Us</span>
+        <div class="gold-rule"></div>
+        <h1>Visit Us</h1>
+        <p class="contact-subtitle">We'd love to see you. Here's everything you need to find us.</p>
+    </div>
+
+    <!-- ========== CONTACT CONTENT ========== -->
+    <main class="airy-container" style="padding-top: 0;">
+        <div class="contact-grid">
+
+            <!-- Card 1: Location -->
+            <div class="card contact-card fade-up">
+                <span class="card-icon">📍</span>
+                <h3>Location</h3>
+                <p>Lot 12, Level 3<br>Pavilion Kuala Lumpur<br>168 Jalan Bukit Bintang<br>55100 Kuala Lumpur</p>
+                <a
+                    href="https://waze.com/ul?ll=3.1488,101.7131&navigate=yes"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-primary btn-ghost contact-btn"
+                    id="contact-waze-btn"
+                >
+                    Open in Waze
+                </a>
+            </div>
+
+            <!-- Card 2: Operating Hours -->
+            <div class="card contact-card fade-up">
+                <span class="card-icon" id="hours-icon">🕐</span>
+                <h3>Operating Hours</h3>
+                <span class="status-badge" id="status-badge"></span>
+                <table class="hours-table">
+                    <tr>
+                        <td>Monday – Thursday</td>
+                        <td>5:00 PM – 10:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Friday – Saturday</td>
+                        <td>5:00 PM – 11:00 PM</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday</td>
+                        <td>12:00 PM – 10:00 PM</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Card 3: Get in Touch -->
+            <div class="card contact-card fade-up">
+                <span class="card-icon">📲</span>
+                <h3>Get in Touch</h3>
+                <p>Have questions or want to make a reservation? Reach out on WhatsApp — we reply fast!</p>
+                <a
+                    href="https://wa.me/60123456789?text=Hi%2C%20I%20found%20your%20contact%20page%20and%20would%20like%20to%20make%20a%20reservation!"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-primary contact-btn"
+                    id="contact-whatsapp-btn"
+                >
+                    Chat on WhatsApp
+                </a>
+            </div>
+
+        </div>
+
+        <!-- ========== RESERVATION CALENDAR ========== -->
+        <div class="cal-section fade-up">
+            <span class="section-label" style="display:block;text-align:center;margin-bottom:12px;">Availability</span>
+            <div class="gold-rule"></div>
+            <h2 class="cal-heading">Reserve a Date</h2>
+            <p class="cal-subheading">Select a date to check availability and remaining pax.</p>
+
+            <div class="cal-widget">
+                <!-- Month navigation -->
+                <div class="cal-nav">
+                    <button class="cal-nav-btn" id="cal-prev" aria-label="Previous month">&#8592;</button>
+                    <span class="cal-month-label" id="cal-month-label"></span>
+                    <button class="cal-nav-btn" id="cal-next" aria-label="Next month">&#8594;</button>
+                </div>
+
+                <!-- Day-of-week headers -->
+                <div class="cal-grid cal-dow-row">
+                    <span>Sun</span><span>Mon</span><span>Tue</span>
+                    <span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+                </div>
+
+                <!-- Date cells injected by JS -->
+                <div class="cal-grid cal-days" id="cal-days"></div>
+
+                <!-- Legend -->
+                <div class="cal-legend">
+                    <span class="cal-legend-item"><i class="cal-dot dot-available"></i>Available</span>
+                    <span class="cal-legend-item"><i class="cal-dot dot-limited"></i>Limited</span>
+                    <span class="cal-legend-item"><i class="cal-dot dot-full"></i>Full</span>
+                </div>
+
+                <!-- Detail panel shown after selecting a date -->
+                <div class="cal-detail" id="cal-detail" hidden>
+                    <div class="cal-detail-inner">
+                        <span class="cal-detail-date" id="cal-detail-date"></span>
+                        <span class="cal-detail-pax"  id="cal-detail-pax"></span>
+                        <a
+                            id="cal-book-btn"
+                            href="#"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="btn-primary cal-book-btn"
+                        >Book via WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Yakiniku Jom &nbsp;·&nbsp; All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        /* ── RESERVATION CALENDAR ── */
+        (function () {
+            var MAX_PAX    = 60;
+            var today      = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            var viewYear  = today.getFullYear();
+            var viewMonth = today.getMonth(); // 0-indexed
+
+            var MONTHS = ["January","February","March","April","May","June",
+                          "July","August","September","October","November","December"];
+            var selectedDate = null;
+
+            /* Deterministic "remaining pax" for a given date.
+               Same seed → same result on every device/reload. */
+            function getRemainingPax(year, month, day) {
+                var seed = year * 10000 + (month + 1) * 100 + day;
+                // LCG-style hash to get a number 0–MAX_PAX
+                var h = ((seed ^ 0xDEADBEEF) >>> 0);
+                h = Math.imul(h ^ (h >>> 16), 0x45d9f3b) >>> 0;
+                h = Math.imul(h ^ (h >>> 16), 0x45d9f3b) >>> 0;
+                h = (h ^ (h >>> 16)) >>> 0;
+                var pct = (h % 101) / 100; // 0.00 – 1.00
+                /* Bias toward full on weekends (Fri=5,Sat=6) */
+                var d = new Date(year, month, day).getDay();
+                if (d === 5 || d === 6) pct = pct * pct; // skew toward 0
+                return Math.round(pct * MAX_PAX);
+            }
+
+            function getState(year, month, day) {
+                var date = new Date(year, month, day);
+                date.setHours(0,0,0,0);
+                if (date < today) return { state: "past",      pax: 0 };
+                var pax = getRemainingPax(year, month, day);
+                if (pax === 0)       return { state: "full",      pax: 0 };
+                if (pax <= 20)       return { state: "limited",   pax: pax };
+                                     return { state: "available", pax: pax };
+            }
+
+            function formatDate(year, month, day) {
+                var d = new Date(year, month, day);
+                var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+                return days[d.getDay()] + ", " +
+                    day + " " + MONTHS[month] + " " + year;
+            }
+
+            function renderCalendar() {
+                document.getElementById("cal-month-label").textContent =
+                    MONTHS[viewMonth] + " " + viewYear;
+
+                var grid    = document.getElementById("cal-days");
+                grid.innerHTML = "";
+
+                var firstDow = new Date(viewYear, viewMonth, 1).getDay();
+                var daysInMonth = new Date(viewYear, viewMonth + 1, 0).getDate();
+
+                /* Leading empty cells */
+                for (var i = 0; i < firstDow; i++) {
+                    var empty = document.createElement("div");
+                    empty.className = "cal-day empty";
+                    grid.appendChild(empty);
+                }
+
+                for (var d = 1; d <= daysInMonth; d++) {
+                    var info = getState(viewYear, viewMonth, d);
+                    var cell = document.createElement("div");
+                    cell.className = "cal-day " + info.state;
+                    cell.textContent = d;
+
+                    var isToday = (viewYear === today.getFullYear() &&
+                                   viewMonth === today.getMonth() &&
+                                   d === today.getDate());
+                    if (isToday) cell.classList.add("today");
+
+                    if (selectedDate &&
+                        selectedDate.y === viewYear &&
+                        selectedDate.m === viewMonth &&
+                        selectedDate.d === d) {
+                        cell.classList.add("selected");
+                    }
+
+                    if (info.state !== "past" && info.state !== "full") {
+                        (function (year, month, day, pax, cellEl) {
+                            cellEl.addEventListener("click", function () {
+                                selectedDate = { y: year, m: month, d: day };
+                                renderCalendar();
+                                showDetail(year, month, day, pax, "available_or_limited");
+                            });
+                        })(viewYear, viewMonth, d, info.pax, cell);
+                    } else if (info.state === "full") {
+                        (function (year, month, day, cellEl) {
+                            cellEl.addEventListener("click", function () {
+                                selectedDate = { y: year, m: month, d: day };
+                                renderCalendar();
+                                showDetail(year, month, day, 0, "full");
+                            });
+                        })(viewYear, viewMonth, d, cell);
+                    }
+
+                    grid.appendChild(cell);
+                }
+            }
+
+            function showDetail(year, month, day, pax, kind) {
+                var panel    = document.getElementById("cal-detail");
+                var dateEl   = document.getElementById("cal-detail-date");
+                var paxEl    = document.getElementById("cal-detail-pax");
+                var bookBtn  = document.getElementById("cal-book-btn");
+
+                dateEl.textContent = formatDate(year, month, day);
+
+                panel.hidden = false;
+
+                if (kind === "full") {
+                    paxEl.textContent  = "Fully booked — no pax remaining.";
+                    bookBtn.textContent = "Fully Booked";
+                    bookBtn.classList.add("disabled");
+                    bookBtn.removeAttribute("href");
+                } else {
+                    var label = pax <= 20 ? "⚠️ Only " + pax + " pax remaining — book soon!"
+                                          : "✅ " + pax + " pax available";
+                    paxEl.textContent = label;
+                    bookBtn.textContent = "Book via WhatsApp";
+                    bookBtn.classList.remove("disabled");
+                    var msg = encodeURIComponent(
+                        "Hi, I'd like to make a reservation for " +
+                        formatDate(year, month, day) + ". How many pax are still available?"
+                    );
+                    bookBtn.href = "https://wa.me/60123456789?text=" + msg;
+                }
+            }
+
+            document.getElementById("cal-prev").addEventListener("click", function () {
+                viewMonth--;
+                if (viewMonth < 0) { viewMonth = 11; viewYear--; }
+                selectedDate = null;
+                document.getElementById("cal-detail").hidden = true;
+                renderCalendar();
+            });
+
+            document.getElementById("cal-next").addEventListener("click", function () {
+                viewMonth++;
+                if (viewMonth > 11) { viewMonth = 0; viewYear++; }
+                selectedDate = null;
+                document.getElementById("cal-detail").hidden = true;
+                renderCalendar();
+            });
+
+            renderCalendar();
+        })();
+    </script>
+    <script>
+        /* ── OPEN / CLOSED BADGE ── */
+        (function () {
+            var now  = new Date();
+            var day  = now.getDay();
+            var time = now.getHours() * 60 + now.getMinutes();
+
+            var open, close;
+            if (day === 0) {
+                open = 12 * 60; close = 22 * 60;
+            } else if (day >= 1 && day <= 4) {
+                open = 17 * 60; close = 22 * 60;
+            } else {
+                open = 17 * 60; close = 23 * 60;
+            }
+
+            var isOpen = time >= open && time < close;
+            document.getElementById("hours-icon").textContent = isOpen ? "🟢" : "🔴";
+
+            var badge = document.getElementById("status-badge");
+            if (isOpen) {
+                badge.textContent = "● Open Now";
+                badge.classList.add("open");
+            } else {
+                badge.textContent = "● Closed";
+                badge.classList.add("closed");
+            }
+        })();
+    </script>
+
+</body>
+</html>

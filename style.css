@@ -1255,31 +1255,96 @@ a   { color: inherit; text-decoration: none; }
 /* ================================================
    RESPONSIVE
    ================================================ */
+/* ── Tablet (641–900px) ── */
 @media (max-width: 900px) and (min-width: 641px) {
     .reviews-carousel { grid-template-columns: repeat(2, 1fr); }
+
+    .airy-container { padding: 72px 28px; }
+
+    .intro-cards { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+    .menu-grid { grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); }
+
+    .contact-grid { grid-template-columns: 1fr 1fr; }
 }
 
+/* ── Mobile (≤640px) — iPhone 12 Pro = 390px ── */
 @media (max-width: 640px) {
-    .airy-container { padding: 72px 20px; }
+    /* Layout */
+    .airy-container { padding: 56px 16px; }
 
-    .site-nav { padding: 16px 20px; }
-    .nav-links { gap: 20px; }
+    /* Nav — shrink gap and font so 4 links fit */
+    .site-nav { padding: 14px 16px; }
+    .nav-logo { font-size: 1rem; gap: 8px; }
+    .nav-logo-mark { width: 22px; height: 22px; }
+    .nav-links { gap: 14px; }
+    .nav-link { font-size: 0.7rem; letter-spacing: 0.1em; }
 
-    .hero-title { font-size: 2.6rem; }
-    .hero-subtitle { font-size: 0.88rem; }
+    /* Hero */
+    .hero-title { font-size: 2.2rem; }
+    .hero-subtitle { font-size: 0.85rem; max-width: 300px; }
+    .hero-typewriter { font-size: clamp(1.2rem, 6vw, 1.8rem); }
+    .hero-overlay { padding: 20px; }
+    .hero-buttons { flex-direction: column; align-items: center; gap: 12px; }
+    .hero-buttons .btn-primary { width: 100%; max-width: 280px; text-align: center; }
 
-    .page-hero { padding-top: 120px; padding-bottom: 52px; }
-    .page-hero h1 { font-size: 2.4rem; }
+    /* Page hero (inner pages) */
+    .page-hero { padding-top: 110px; padding-bottom: 40px; }
+    .page-hero h1 { font-size: 2rem; }
 
+    /* Grids → single column */
     .intro-cards,
     .contact-grid,
     .menu-grid { grid-template-columns: 1fr; }
 
-    .reviews-carousel { grid-template-columns: 1fr; }
-    .reviews-arrow { width: 34px; height: 34px; }
-    .reviews-arrow svg { width: 15px; height: 15px; }
+    /* Section headings */
+    h2 { font-size: clamp(1.6rem, 6vw, 2.4rem); }
 
-    .filter-btn { font-size: 0.7rem; padding: 9px 18px; }
+    /* Cards — reduce padding on mobile */
+    .card { padding: 22px 18px; }
+
+    /* Reviews carousel — hide arrows, go full-width 1 col */
+    .reviews-carousel { grid-template-columns: 1fr; }
+    .reviews-carousel-wrap { gap: 6px; }
+    .reviews-arrow { width: 32px; height: 32px; flex-shrink: 0; }
+    .reviews-arrow svg { width: 14px; height: 14px; }
+
+    /* Menu filter bar — allow wrap, smaller buttons */
+    .filter-bar { gap: 8px; }
+    .filter-btn {
+        font-size: 0.68rem;
+        padding: 8px 14px;
+        gap: 5px;
+        letter-spacing: 0.08em;
+    }
+
+    /* Menu grid min → full width */
+    .menu-grid { grid-template-columns: 1fr; }
+
+    /* Calendar — reduce padding so cells don't crunch */
+    .cal-widget { padding: 20px 12px 18px; }
+    .cal-grid { gap: 2px; }
+    .cal-day { font-size: 0.72rem; border-radius: 6px; }
+    .cal-dow-row span { font-size: 0.58rem; letter-spacing: 0.06em; }
+    .cal-month-label { font-size: 0.95rem; }
+    .cal-detail { padding: 16px; }
+    .cal-detail-date { font-size: 0.9rem; }
+
+    /* Contact — transport & origin rows stay readable */
+    .transport-list { gap: 8px; }
+    .origin-name { font-size: 0.8rem; }
+    .origin-meta { font-size: 0.72rem; }
+
+    /* Map embed — shorter on mobile */
+    .map-embed-wrap { height: 280px; }
+    .map-section { margin-top: 48px; }
+
+    /* CTA section buttons stack */
+    .cta-buttons { flex-direction: column; align-items: center; gap: 12px; }
+    .cta-buttons .btn-primary { width: 100%; max-width: 300px; text-align: center; }
+
+    /* Footer */
+    .site-footer { padding: 24px 16px; font-size: 0.78rem; }
 }
 
 /* ================================================

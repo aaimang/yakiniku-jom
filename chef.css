@@ -115,3 +115,11 @@
 /* ── Dragging state ── */
 #chef-widget.dragging #chef-svg-wrap { animation: none !important; filter: drop-shadow(0 12px 28px rgba(201,151,58,0.35)); }
 #chef-widget.dragging { opacity: 0.92; }
+
+/* ── Mobile adjustments ── */
+@media (max-width: 640px) {
+    #chef-widget { bottom: 20px; right: 16px; }
+    #chef-svg-wrap { width: 72px; }
+    #chef-bubble { font-size: 0.72rem; max-width: 160px; padding: 8px 12px; }
+    #chef-close { opacity: 1; }
+}

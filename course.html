@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Yakiniku Jom Course & Pricing — find the perfect meal set for your group and get an instant price quote.">
+    <title>Yakiniku Jom | Course & Pricing</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chef.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Cormorant+Garamond:wght@400;600&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <header class="site-header scrolled" id="site-header">
+        <nav class="site-nav">
+            <a href="index.html" class="nav-logo">
+                <img src="favicon.svg" alt="" class="nav-logo-mark" aria-hidden="true">
+                Yakiniku Jom
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="menu.html" class="nav-link">Menu</a>
+                <a href="course.html" class="nav-link active">Course</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ========== PAGE HERO ========== -->
+    <div class="page-hero">
+        <span class="section-label">Plan Your Visit</span>
+        <div class="gold-rule"></div>
+        <h1>Course &amp; Pricing</h1>
+        <p class="course-subtitle">Tell us your group size and we'll recommend the perfect set — with instant pricing.</p>
+    </div>
+
+    <!-- ========== GROUP INPUT ========== -->
+    <section class="airy-container" style="padding-top: 0; padding-bottom: 48px;">
+
+        <div class="course-input-panel fade-up" id="course-input-panel">
+            <div class="course-input-group">
+                <label class="course-label" for="adults-count">
+                    <i data-lucide="user" class="course-label-icon"></i>
+                    Adults
+                </label>
+                <div class="course-stepper">
+                    <button class="stepper-btn" id="adults-minus" aria-label="Decrease adults">−</button>
+                    <input type="number" id="adults-count" class="stepper-value" value="2" min="1" max="30" readonly>
+                    <button class="stepper-btn" id="adults-plus" aria-label="Increase adults">+</button>
+                </div>
+            </div>
+
+            <div class="course-input-divider"></div>
+
+            <div class="course-input-group">
+                <label class="course-label" for="children-count">
+                    <i data-lucide="baby" class="course-label-icon"></i>
+                    Children <span class="course-label-note">(under 12 — 50% off)</span>
+                </label>
+                <div class="course-stepper">
+                    <button class="stepper-btn" id="children-minus" aria-label="Decrease children">−</button>
+                    <input type="number" id="children-count" class="stepper-value" value="0" min="0" max="30" readonly>
+                    <button class="stepper-btn" id="children-plus" aria-label="Increase children">+</button>
+                </div>
+            </div>
+
+            <div class="course-pax-summary" id="course-pax-summary">
+                Total: <strong>2 pax</strong>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ========== VIP PERK BANNER (shown by JS for 10+ pax) ========== -->
+    <div class="course-perk-banner" id="course-perk-banner" hidden>
+        <div class="perk-banner-inner">
+            <span class="perk-banner-icon">🎉</span>
+            <div class="perk-banner-text">
+                <strong>Exclusive Large Group Perks — <span class="perk-banner-pax">10 pax</span></strong>
+                <span>Complimentary Private VIP Room · Free Wagyu Tasting Platter for the Table · Priority Reservation</span>
+            </div>
+            <a
+                href="https://wa.me/60123456789?text=Hi%2C%20I'd%20like%20to%20enquire%20about%20a%20large%20group%20booking%20and%20VIP%20perks!"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="perk-banner-cta"
+            >Claim Perks →</a>
+        </div>
+    </div>
+
+    <!-- ========== SET CARDS ========== -->
+    <main class="airy-container" style="padding-top: 0;">
+
+        <p class="course-results-label" id="course-results-label">
+            Showing sets for <strong>2 pax</strong>
+        </p>
+
+        <div class="course-grid" id="course-grid">
+            <!-- Cards are injected by course.js -->
+        </div>
+
+        <!-- CTA at the bottom -->
+        <div class="menu-book-cta fade-up" style="margin-top: 56px;">
+            <p>Found your perfect set?</p>
+            <a
+                href="https://wa.me/60123456789?text=Hi%2C%20I'd%20like%20to%20book%20a%20meal%20set%20for%20my%20group!"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary"
+            >
+                Book via WhatsApp
+            </a>
+        </div>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer">
+        <p>&copy; 2026 Yakiniku Jom &nbsp;·&nbsp; All rights reserved.</p>
+    </footer>
+
+    <script>lucide.createIcons();</script>
+    <script type="module" src="app.js"></script>
+    <script src="course.js"></script>
+    <script src="chef.js"></script>
+
+</body>
+</html>

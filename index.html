@@ -5,20 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Yakiniku Jom — Halal Japanese BBQ in Kuala Lumpur. Verify allergen-safe and dietary options before you visit.">
     <title>Yakiniku Jom | Halal Japanese BBQ</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chef.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Cormorant+Garamond:wght@400;600&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
     <!-- ========== NAVIGATION ========== -->
     <header class="site-header" id="site-header">
         <nav class="site-nav">
-            <a href="index.html" class="nav-logo">Yakiniku Jom</a>
+            <a href="index.html" class="nav-logo">
+                <img src="favicon.svg" alt="" class="nav-logo-mark" aria-hidden="true">
+                Yakiniku Jom
+            </a>
             <div class="nav-links">
                 <a href="index.html" class="nav-link active" data-section="hero">Home</a>
                 <a href="menu.html" class="nav-link">Menu</a>
+                <a href="course.html" class="nav-link">Course</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </div>
         </nav>
@@ -59,17 +66,17 @@
         <h2>Why Yakiniku Jom?</h2>
         <div class="intro-cards" style="margin-top: 48px;">
             <div class="card fade-up">
-                <span class="card-icon">✅</span>
+                <span class="card-icon"><i data-lucide="badge-check"></i></span>
                 <h3>100% Halal Certified</h3>
                 <p>Every cut of meat is sourced from certified Halal suppliers. Dine with full peace of mind.</p>
             </div>
             <div class="card fade-up">
-                <span class="card-icon">🌿</span>
+                <span class="card-icon"><i data-lucide="leaf"></i></span>
                 <h3>Dietary Friendly</h3>
                 <p>Easily filter our menu for Vegan, No Seafood, and other dietary needs — no guessing required.</p>
             </div>
             <div class="card fade-up">
-                <span class="card-icon">🔥</span>
+                <span class="card-icon"><i data-lucide="flame"></i></span>
                 <h3>Grill It Your Way</h3>
                 <p>Pick your cuts, control the heat, and enjoy the interactive yakiniku experience with friends and family.</p>
             </div>
@@ -82,42 +89,100 @@
         <div class="gold-rule"></div>
         <h2>What Our Guests Say</h2>
         <p class="reviews-subtitle">Real reviews from Google Maps</p>
-        <div class="reviews-grid">
 
-            <div class="card review-card fade-up">
-                <div class="review-header">
-                    <div class="review-avatar">A</div>
-                    <div class="review-meta">
-                        <span class="review-name">Aishah R.</span>
-                        <span class="review-stars">★★★★★</span>
+        <div class="reviews-carousel-wrap fade-up">
+            <button class="reviews-arrow reviews-prev" id="reviews-prev" aria-label="Previous reviews">
+                <i data-lucide="chevron-left"></i>
+            </button>
+
+            <div class="reviews-carousel" id="reviews-carousel">
+
+                <div class="card review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">A</div>
+                        <div class="review-meta">
+                            <span class="review-name">Aishah R.</span>
+                            <span class="review-stars">★★★★★</span>
+                        </div>
                     </div>
+                    <p class="review-text">"Absolutely love this place! The wagyu short ribs were melt-in-your-mouth good. Finally a proper Halal yakiniku spot in KL that doesn't compromise on quality."</p>
                 </div>
-                <p class="review-text">"Absolutely love this place! The wagyu short ribs were melt-in-your-mouth good. Finally a proper Halal yakiniku spot in KL that doesn't compromise on quality."</p>
+
+                <div class="card review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">F</div>
+                        <div class="review-meta">
+                            <span class="review-name">Farid M.</span>
+                            <span class="review-stars">★★★★★</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Came here for my anniversary and the vibe was perfect — warm lighting, attentive staff, and the food was incredible. The vegan mushroom set surprised me the most!"</p>
+                </div>
+
+                <div class="card review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">S</div>
+                        <div class="review-meta">
+                            <span class="review-name">Syafiqah L.</span>
+                            <span class="review-stars">★★★★☆</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Great experience overall. The dietary filter on their website made it so easy to plan our order in advance. Would have given 5 stars if the wait time was shorter on weekends."</p>
+                </div>
+
+                <div class="card review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">H</div>
+                        <div class="review-meta">
+                            <span class="review-name">Hafiz A.</span>
+                            <span class="review-stars">★★★★★</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Memang terbaik! Daging wagyu dia lembut gila, cair dalam mulut. Sesuai sangat untuk makan malam bersama keluarga. Confirm datang lagi bulan depan!"</p>
+                </div>
+
+                <div class="card review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">N</div>
+                        <div class="review-meta">
+                            <span class="review-name">Nur Izzati</span>
+                            <span class="review-stars">★★★★★</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Sangat puas hati dengan pengalaman makan di sini. Halal, sedap, dan suasana restoran pun cantik. Staff pun ramah dan membantu. Highly recommended untuk sesiapa yang nak celebrate!"</p>
+                </div>
+
+                <div class="card review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">R</div>
+                        <div class="review-meta">
+                            <span class="review-name">Rania K.</span>
+                            <span class="review-stars">★★★★★</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Brought my whole family here for Eid and everyone left happy. The lamb chops were phenomenal and they accommodated our dietary requirements without any fuss. Will be back!"</p>
+                </div>
+
+                <div class="card review-card">
+                    <div class="review-header">
+                        <div class="review-avatar">Z</div>
+                        <div class="review-meta">
+                            <span class="review-name">Zulaikha M.</span>
+                            <span class="review-stars">★★★★☆</span>
+                        </div>
+                    </div>
+                    <p class="review-text">"Best date night spot in KL! The ambiance is so cozy and the food quality is consistently good. The chicken karaage as a starter was a great call. Only wish the portions were a bit bigger!"</p>
+                </div>
+
             </div>
 
-            <div class="card review-card fade-up">
-                <div class="review-header">
-                    <div class="review-avatar">F</div>
-                    <div class="review-meta">
-                        <span class="review-name">Farid M.</span>
-                        <span class="review-stars">★★★★★</span>
-                    </div>
-                </div>
-                <p class="review-text">"Came here for my anniversary and the vibe was perfect — warm lighting, attentive staff, and the food was incredible. The vegan mushroom set surprised me the most!"</p>
-            </div>
-
-            <div class="card review-card fade-up">
-                <div class="review-header">
-                    <div class="review-avatar">S</div>
-                    <div class="review-meta">
-                        <span class="review-name">Syafiqah L.</span>
-                        <span class="review-stars">★★★★☆</span>
-                    </div>
-                </div>
-                <p class="review-text">"Great experience overall. The dietary filter on their website made it so easy to plan our order in advance. Would have given 5 stars if the wait time was shorter on weekends."</p>
-            </div>
-
+            <button class="reviews-arrow reviews-next" id="reviews-next" aria-label="Next reviews">
+                <i data-lucide="chevron-right"></i>
+            </button>
         </div>
+
+        <!-- Dots -->
+        <div class="reviews-dots" id="reviews-dots"></div>
     </section>
 
     <!-- ========== RESERVATION CALENDAR ========== -->
@@ -170,7 +235,180 @@
         </div>
     </section>
 
+    <!-- ========== PAYMENT & T&C ========== -->
+    <section class="airy-container policy-section" style="padding-top: 0;">
+        <span class="section-label">Before You Visit</span>
+        <div class="gold-rule"></div>
+        <h2 class="policy-heading">Payment &amp; Booking Policy</h2>
+        <p class="policy-subheading">Everything you need to know before your reservation.</p>
+
+        <div class="policy-grid">
+
+            <!-- ── LEFT: Payment Methods ── -->
+            <div class="card policy-card fade-up">
+                <span class="card-icon"><i data-lucide="credit-card"></i></span>
+                <h3>We Accept</h3>
+                <p class="policy-card-desc">Pay whichever way is easiest for you — we support all major methods.</p>
+                <ul class="payment-list">
+
+                    <!-- Cash — Lucide banknote -->
+                    <li class="payment-item">
+                        <span class="payment-icon">
+                            <i data-lucide="banknote" class="payment-lucide-icon"></i>
+                        </span>
+                        <div class="payment-info">
+                            <span class="payment-name">Cash</span>
+                            <span class="payment-note">Malaysian Ringgit (MYR)</span>
+                        </div>
+                    </li>
+
+                    <!-- Touch 'n Go — blue SVG logo mark -->
+                    <li class="payment-item">
+                        <span class="payment-icon payment-icon--tng">
+                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-label="Touch n Go" role="img" width="28" height="28">
+                                <rect width="40" height="40" rx="8" fill="#1678FB"/>
+                                <!-- Stylised lightning bolt -->
+                                <polygon points="23,6 14,22 20,22 17,34 26,18 20,18" fill="#FFFFFF"/>
+                            </svg>
+                        </span>
+                        <div class="payment-info">
+                            <span class="payment-name">Touch 'n Go (TnG)</span>
+                            <span class="payment-note">eWallet scan-to-pay</span>
+                        </div>
+                    </li>
+
+                    <!-- DuitNow — red/orange QR mark -->
+                    <li class="payment-item">
+                        <span class="payment-icon payment-icon--duitnow">
+                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-label="DuitNow QR" role="img" width="28" height="28">
+                                <rect width="40" height="40" rx="8" fill="#E8192C"/>
+                                <!-- QR corner squares -->
+                                <rect x="8"  y="8"  width="9" height="9" rx="1.5" fill="none" stroke="#fff" stroke-width="2"/>
+                                <rect x="23" y="8"  width="9" height="9" rx="1.5" fill="none" stroke="#fff" stroke-width="2"/>
+                                <rect x="8"  y="23" width="9" height="9" rx="1.5" fill="none" stroke="#fff" stroke-width="2"/>
+                                <!-- QR centre dots -->
+                                <rect x="11" y="11" width="3" height="3" fill="#fff"/>
+                                <rect x="26" y="11" width="3" height="3" fill="#fff"/>
+                                <rect x="11" y="26" width="3" height="3" fill="#fff"/>
+                                <!-- Bottom-right QR data lines -->
+                                <rect x="23" y="23" width="3" height="3" fill="#fff"/>
+                                <rect x="28" y="23" width="3" height="3" fill="#fff"/>
+                                <rect x="23" y="28" width="3" height="3" fill="#fff"/>
+                                <rect x="28" y="28" width="3" height="3" fill="#fff"/>
+                                <rect x="25.5" y="25.5" width="3" height="3" fill="#E8192C"/>
+                            </svg>
+                        </span>
+                        <div class="payment-info">
+                            <span class="payment-name">DuitNow QR</span>
+                            <span class="payment-note">Scan with any Malaysian banking app</span>
+                        </div>
+                    </li>
+
+                    <!-- Visa — classic navy wordmark -->
+                    <li class="payment-item">
+                        <span class="payment-icon payment-icon--visa">
+                            <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-label="Visa" role="img" width="36" height="24">
+                                <rect width="60" height="40" rx="5" fill="#1A1F71"/>
+                                <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle"
+                                    font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800"
+                                    font-style="italic" fill="#FFFFFF" letter-spacing="1">VISA</text>
+                            </svg>
+                        </span>
+                        <div class="payment-info">
+                            <span class="payment-name">Visa</span>
+                            <span class="payment-note">Credit &amp; Debit</span>
+                        </div>
+                    </li>
+
+                    <!-- Mastercard — overlapping circles -->
+                    <li class="payment-item">
+                        <span class="payment-icon payment-icon--mc">
+                            <svg viewBox="0 0 50 34" xmlns="http://www.w3.org/2000/svg" aria-label="Mastercard" role="img" width="34" height="24">
+                                <rect width="50" height="34" rx="4" fill="#252525"/>
+                                <circle cx="19" cy="17" r="10" fill="#EB001B"/>
+                                <circle cx="31" cy="17" r="10" fill="#F79E1B"/>
+                                <!-- Overlap blend -->
+                                <path d="M25 9.3a10 10 0 0 1 0 15.4A10 10 0 0 1 25 9.3z" fill="#FF5F00"/>
+                            </svg>
+                        </span>
+                        <div class="payment-info">
+                            <span class="payment-name">Mastercard</span>
+                            <span class="payment-note">Credit &amp; Debit</span>
+                        </div>
+                    </li>
+
+                    <!-- American Express — blue card badge -->
+                    <li class="payment-item">
+                        <span class="payment-icon payment-icon--amex">
+                            <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-label="American Express" role="img" width="36" height="24">
+                                <rect width="60" height="40" rx="5" fill="#2E77BC"/>
+                                <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle"
+                                    font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="800"
+                                    fill="#FFFFFF" letter-spacing="1.5">AMEX</text>
+                            </svg>
+                        </span>
+                        <div class="payment-info">
+                            <span class="payment-name">American Express</span>
+                            <span class="payment-note">Credit Card</span>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- ── RIGHT: Booking T&C ── -->
+            <div class="card policy-card fade-up">
+                <span class="card-icon"><i data-lucide="file-text"></i></span>
+                <h3>Booking &amp; Cancellation</h3>
+                <p class="policy-card-desc">A deposit is required to secure your reservation. Cancellations are handled as follows:</p>
+
+                <!-- Deposit notice -->
+                <div class="policy-deposit-banner">
+                    <i data-lucide="info" class="policy-deposit-icon"></i>
+                    <span><strong>Deposit Required</strong> for bookings of <strong>5 pax or more</strong>. Deposit amount will be communicated upon reservation.</span>
+                </div>
+
+                <!-- Cancellation table -->
+                <table class="policy-table">
+                    <thead>
+                        <tr>
+                            <th>Notice Given</th>
+                            <th>Applies To</th>
+                            <th>Refund</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="policy-timing policy-timing--good">2–3 days before</span></td>
+                            <td>5 pax &amp; above</td>
+                            <td><span class="policy-refund policy-refund--50">50% refund</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="policy-timing policy-timing--warn">1 day before</span></td>
+                            <td>5 pax &amp; above</td>
+                            <td><span class="policy-refund policy-refund--25">25% refund</span></td>
+                        </tr>
+                        <tr>
+                            <td><span class="policy-timing policy-timing--bad">Same day / No-show</span></td>
+                            <td>All reservations</td>
+                            <td><span class="policy-refund policy-refund--none">No refund</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p class="policy-note">
+                    For large group bookings (10+ pax) or special events, please
+                    <a href="https://wa.me/60123456789?text=Hi%2C%20I'd%20like%20to%20ask%20about%20a%20large%20group%20booking%20policy!" target="_blank" rel="noopener noreferrer" class="policy-link">contact us directly</a>
+                    to discuss tailored arrangements.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
     <!-- ========== CTA ========== -->
+
     <section class="cta airy-container">
         <span class="section-label">Reserve Your Table</span>
         <div class="gold-rule"></div>
@@ -195,7 +433,70 @@
         <p>&copy; 2026 Yakiniku Jom &nbsp;·&nbsp; All rights reserved.</p>
     </footer>
 
+    <script>
+        /* ── REVIEWS CAROUSEL ── */
+        (function () {
+            var carousel  = document.getElementById("reviews-carousel");
+            var prevBtn   = document.getElementById("reviews-prev");
+            var nextBtn   = document.getElementById("reviews-next");
+            var dotsWrap  = document.getElementById("reviews-dots");
+            if (!carousel) return;
+
+            var cards = Array.from(carousel.querySelectorAll(".review-card"));
+            var page  = 0;
+
+            function perPage() {
+                if (window.innerWidth <= 640) return 1;
+                if (window.innerWidth <= 900) return 2;
+                return 3;
+            }
+
+            function totalPages() { return Math.ceil(cards.length / perPage()); }
+
+            function buildDots() {
+                dotsWrap.innerHTML = "";
+                for (var i = 0; i < totalPages(); i++) {
+                    var dot = document.createElement("button");
+                    dot.className = "reviews-dot" + (i === page ? " active" : "");
+                    dot.setAttribute("aria-label", "Go to page " + (i + 1));
+                    (function (idx) {
+                        dot.addEventListener("click", function () { goTo(idx); });
+                    })(i);
+                    dotsWrap.appendChild(dot);
+                }
+            }
+
+            function goTo(idx) {
+                page = Math.max(0, Math.min(idx, totalPages() - 1));
+                var pp   = perPage();
+                var start = page * pp;
+
+                cards.forEach(function (card, i) {
+                    card.style.display = (i >= start && i < start + pp) ? "" : "none";
+                });
+
+                prevBtn.disabled = page === 0;
+                nextBtn.disabled = page >= totalPages() - 1;
+
+                var dots = dotsWrap.querySelectorAll(".reviews-dot");
+                dots.forEach(function (d, i) { d.classList.toggle("active", i === page); });
+            }
+
+            prevBtn.addEventListener("click", function () { goTo(page - 1); });
+            nextBtn.addEventListener("click", function () { goTo(page + 1); });
+            window.addEventListener("resize", function () {
+                page = 0;
+                buildDots();
+                goTo(0);
+            });
+
+            buildDots();
+            goTo(0);
+        })();
+    </script>
+    <script>lucide.createIcons();</script>
     <script type="module" src="app.js"></script>
+    <script src="chef.js"></script>
     <script>
         /* ── RESERVATION CALENDAR ── */
         (function () {
@@ -309,8 +610,8 @@
                     bookBtn.classList.add("disabled");
                     bookBtn.removeAttribute("href");
                 } else {
-                    var label = pax <= 20 ? "⚠️ Only " + pax + " pax remaining — book soon!"
-                                          : "✅ " + pax + " pax available";
+                    var label = pax <= 20 ? "Only " + pax + " pax remaining — book soon!"
+                                          : pax + " pax available";
                     paxEl.textContent = label;
                     bookBtn.textContent = "Book via WhatsApp";
                     bookBtn.classList.remove("disabled");

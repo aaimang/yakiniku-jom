@@ -5,20 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Browse our Halal Japanese BBQ menu. Filter by dietary needs — Halal, Vegan, or No Seafood.">
     <title>Yakiniku Jom | Menu</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="chef.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Cormorant+Garamond:wght@400;600&family=Raleway:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 <body>
 
     <!-- ========== NAVIGATION ========== -->
     <header class="site-header scrolled" id="site-header">
         <nav class="site-nav">
-            <a href="index.html" class="nav-logo">Yakiniku Jom</a>
+            <a href="index.html" class="nav-logo">
+                <img src="favicon.svg" alt="" class="nav-logo-mark" aria-hidden="true">
+                Yakiniku Jom
+            </a>
             <div class="nav-links">
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="menu.html" class="nav-link active">Menu</a>
+                <a href="course.html" class="nav-link">Course</a>
                 <a href="contact.html" class="nav-link">Contact</a>
             </div>
         </nav>
@@ -36,11 +43,11 @@
     <main class="airy-container" style="padding-top: 0;">
 
         <div class="filter-bar" id="filter-bar">
-            <button class="filter-btn active" data-filter="all">All</button>
-            <button class="filter-btn" data-filter="halal">✅ Halal</button>
-            <button class="filter-btn" data-filter="vegan">🌿 Vegan</button>
-            <button class="filter-btn" data-filter="no-seafood">🚫 No Seafood</button>
-            <button class="filter-btn" data-filter="drinks">🍵 Drinks</button>
+            <button class="filter-btn active" data-filter="all"><i data-lucide="layout-grid"></i> All</button>
+            <button class="filter-btn" data-filter="halal"><i data-lucide="badge-check"></i> Halal</button>
+            <button class="filter-btn" data-filter="vegan"><i data-lucide="leaf"></i> Vegan</button>
+            <button class="filter-btn" data-filter="no-seafood"><i data-lucide="fish-off"></i> No Seafood</button>
+            <button class="filter-btn" data-filter="drinks"><i data-lucide="cup-soda"></i> Drinks</button>
         </div>
 
         <div class="menu-grid" id="menu-grid">
@@ -331,7 +338,9 @@
         <p>&copy; 2026 Yakiniku Jom &nbsp;·&nbsp; All rights reserved.</p>
     </footer>
 
+    <script>lucide.createIcons();</script>
     <script type="module" src="app.js"></script>
+    <script src="chef.js"></script>
 
 </body>
 </html>

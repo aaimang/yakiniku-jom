@@ -117,6 +117,16 @@ a   { color: inherit; text-decoration: none; }
     font-size: 1.2rem;
     color: var(--gold);
     letter-spacing: 0.04em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-logo-mark {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    flex-shrink: 0;
 }
 
 .nav-links {
@@ -337,9 +347,22 @@ a   { color: inherit; text-decoration: none; }
 }
 
 .card-icon {
-    font-size: 1.8rem;
-    display: block;
-    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--gold-dim);
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+    color: var(--gold);
+}
+.card-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: currentColor;
+    stroke-width: 1.75;
 }
 
 .card h3 {
@@ -384,11 +407,65 @@ a   { color: inherit; text-decoration: none; }
     margin-bottom: 48px;
 }
 
-.reviews-grid {
+/* ── Carousel wrapper ── */
+.reviews-carousel-wrap {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.reviews-carousel {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
+    overflow: hidden;
+    flex: 1;
     text-align: left;
+}
+
+/* Arrow buttons */
+.reviews-arrow {
+    flex-shrink: 0;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+.reviews-arrow:hover:not(:disabled) {
+    background: var(--gold-dim);
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-gold);
+}
+.reviews-arrow:disabled { opacity: 0.25; cursor: default; }
+.reviews-arrow svg { width: 18px; height: 18px; stroke-width: 2; }
+
+/* Dots */
+.reviews-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 28px;
+}
+.reviews-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+    transition: all 0.25s;
+    border: none;
+    padding: 0;
+}
+.reviews-dot.active {
+    background: var(--gold);
+    transform: scale(1.3);
 }
 
 .review-card {
@@ -512,17 +589,28 @@ a   { color: inherit; text-decoration: none; }
     text-transform: uppercase;
 }
 
+.status-badge::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
 .status-badge.open {
     background: rgba(46, 125, 50, 0.12);
     color: #6fcf78;
     border: 1px solid rgba(111, 207, 120, 0.25);
 }
+.status-badge.open::before  { background: #6fcf78; }
 
 .status-badge.closed {
     background: rgba(180, 60, 50, 0.10);
     color: #e07070;
     border: 1px solid rgba(224, 112, 112, 0.22);
 }
+.status-badge.closed::before { background: #e07070; }
 
 /* ---------- NO-RESULTS ---------- */
 .no-results {
@@ -590,6 +678,9 @@ a   { color: inherit; text-decoration: none; }
 }
 
 .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
     background: transparent;
     color: var(--text-muted);
     padding: 10px 24px;
@@ -602,6 +693,13 @@ a   { color: inherit; text-decoration: none; }
     text-transform: uppercase;
     cursor: pointer;
     transition: all var(--transition);
+}
+.filter-btn svg {
+    width: 14px;
+    height: 14px;
+    stroke: currentColor;
+    stroke-width: 2;
+    flex-shrink: 0;
 }
 
 .filter-btn:hover:not(.active) {
@@ -779,6 +877,95 @@ a   { color: inherit; text-decoration: none; }
     font-size: 0.75rem;
 }
 
+/* ---- TRANSPORT & ORIGIN ROWS ---- */
+.transport-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+    width: 100%;
+}
+
+.transport-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.transport-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--gold-dim);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--gold);
+}
+
+.transport-icon svg { width: 15px; height: 15px; stroke-width: 1.75; }
+
+.transport-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.transport-mode {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.transport-detail {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.origin-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--border);
+    width: 100%;
+}
+
+.origin-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 8px;
+    padding: 9px 0;
+    border-bottom: 1px solid rgba(201,151,58,0.08);
+}
+
+.origin-row:last-child { border-bottom: none; }
+
+.origin-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+}
+
+.origin-meta {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-align: right;
+}
+
 .hours-table {
     width: 100%;
     border-collapse: collapse;
@@ -804,6 +991,28 @@ a   { color: inherit; text-decoration: none; }
 }
 
 .hours-table tr:last-child td { border-bottom: none; }
+
+/* ---- MAP EMBED ---- */
+.map-section {
+    margin-top: 72px;
+    text-align: center;
+}
+
+.map-embed-wrap {
+    margin-top: 32px;
+    width: 100%;
+    height: 420px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-card);
+}
+
+.map-embed-wrap iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
 
 /* ================================================
    RESERVATION CALENDAR
@@ -1046,6 +1255,10 @@ a   { color: inherit; text-decoration: none; }
 /* ================================================
    RESPONSIVE
    ================================================ */
+@media (max-width: 900px) and (min-width: 641px) {
+    .reviews-carousel { grid-template-columns: repeat(2, 1fr); }
+}
+
 @media (max-width: 640px) {
     .airy-container { padding: 72px 20px; }
 
@@ -1059,9 +1272,673 @@ a   { color: inherit; text-decoration: none; }
     .page-hero h1 { font-size: 2.4rem; }
 
     .intro-cards,
-    .reviews-grid,
     .contact-grid,
     .menu-grid { grid-template-columns: 1fr; }
 
+    .reviews-carousel { grid-template-columns: 1fr; }
+    .reviews-arrow { width: 34px; height: 34px; }
+    .reviews-arrow svg { width: 15px; height: 15px; }
+
     .filter-btn { font-size: 0.7rem; padding: 9px 18px; }
+}
+
+/* ================================================
+   COURSE & PRICING PAGE
+   ================================================ */
+
+.course-subtitle {
+    color: var(--text-muted);
+    font-family: 'Raleway', sans-serif;
+    margin-top: 10px;
+    font-size: 0.95rem;
+}
+
+/* ---------- INPUT PANEL ---------- */
+.course-input-panel {
+    max-width: 560px;
+    margin: 0 auto;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 28px 24px;
+    box-shadow: var(--shadow-card);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+}
+
+.course-input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.course-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.course-label-icon {
+    width: 16px;
+    height: 16px;
+    stroke: var(--gold);
+    stroke-width: 2;
+}
+
+.course-label-note {
+    font-weight: 400;
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    color: var(--text-dim);
+    text-transform: none;
+}
+
+/* ── Stepper (+/−/value) ── */
+.course-stepper {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+
+.stepper-btn {
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    color: var(--gold);
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.stepper-btn:hover {
+    background: var(--gold-dim);
+}
+
+.stepper-value {
+    width: 48px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    background: transparent;
+    border: none;
+    border-left: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    -moz-appearance: textfield;
+    outline: none;
+}
+
+.stepper-value::-webkit-inner-spin-button,
+.stepper-value::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.course-input-divider {
+    width: 1px;
+    height: 64px;
+    background: var(--border);
+}
+
+.course-pax-summary {
+    width: 100%;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    letter-spacing: 0.08em;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.course-pax-summary strong {
+    color: var(--gold);
+    font-weight: 700;
+}
+
+/* ---------- RESULTS LABEL ---------- */
+.course-results-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.8rem;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+}
+
+.course-results-label strong {
+    color: var(--gold);
+}
+
+/* ---------- COURSE GRID ---------- */
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    text-align: left;
+}
+
+/* ---------- COURSE CARD ---------- */
+.course-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.course-card:hover {
+    border-color: var(--border-hover);
+    box-shadow: var(--shadow-gold), var(--shadow-card);
+    transform: translateY(-4px);
+}
+
+/* ── Image + badge ── */
+.course-card-image-wrap {
+    position: relative;
+    overflow: hidden;
+}
+
+.course-card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    filter: brightness(0.80);
+    transition: filter var(--transition);
+}
+
+.course-card:hover .course-card-image {
+    filter: brightness(1);
+}
+
+.course-card-badge {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(13, 13, 13, 0.75);
+    backdrop-filter: blur(8px);
+    border: 1px solid var(--border-hover);
+    color: var(--gold);
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: var(--radius-pill);
+}
+
+/* ── Body ── */
+.course-card-body {
+    padding: 22px 20px 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.course-card-body h3 {
+    font-size: 1.15rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.course-card-desc {
+    color: var(--text-muted);
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    margin-bottom: 16px;
+}
+
+/* ── Includes list ── */
+.course-card-includes {
+    margin-bottom: 20px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.course-includes-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.course-includes-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.course-includes-list li {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--gold-dim);
+    border: 1px solid var(--border);
+    color: var(--gold-light);
+    letter-spacing: 0.04em;
+}
+
+/* ── Pricing section ── */
+.course-card-pricing {
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.course-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.course-price-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+}
+
+.course-price-value {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.course-price-total-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 8px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+}
+
+.course-total-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.course-total-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--gold);
+}
+
+/* ---------- COURSE RESPONSIVE ---------- */
+@media (max-width: 640px) {
+    .course-input-panel {
+        padding: 24px 20px 20px;
+        gap: 16px;
+    }
+
+    .course-input-divider {
+        width: 100%;
+        height: 1px;
+    }
+
+    .course-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .perk-banner-inner {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+}
+
+/* ── Badge colour variants ── */
+.course-card-badge {
+    /* default — inherits styles from existing .course-card-badge */
+}
+
+/* "Best Value" — green */
+.course-card-badge--best-value {
+    background: rgba(46, 125, 50, 0.80) !important;
+    border-color: rgba(111, 207, 120, 0.6) !important;
+    color: #b9f5c2 !important;
+}
+
+/* "Most Popular" — gold (brand colour) */
+.course-card-badge--most-popular {
+    background: rgba(201, 151, 58, 0.88) !important;
+    border-color: var(--gold-light) !important;
+    color: #0d0d0d !important;
+}
+
+/* "Signature" — deep purple luxury */
+.course-card-badge--signature {
+    background: rgba(108, 52, 162, 0.82) !important;
+    border-color: rgba(180, 130, 240, 0.5) !important;
+    color: #e8d5ff !important;
+}
+
+/* ── VIP Perk Banner ── */
+.course-perk-banner {
+    max-width: 1000px;
+    margin: 0 auto 40px;
+    padding: 0 32px;
+    animation: fadeUp 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.perk-banner-inner {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: linear-gradient(135deg, rgba(201,151,58,0.14) 0%, rgba(201,151,58,0.05) 100%);
+    border: 1px solid rgba(201, 151, 58, 0.50);
+    border-radius: var(--radius);
+    padding: 18px 24px;
+    box-shadow: 0 0 32px rgba(201, 151, 58, 0.10);
+}
+
+.perk-banner-icon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.perk-banner-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.perk-banner-text strong {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 0.04em;
+}
+
+.perk-banner-text span {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    letter-spacing: 0.02em;
+}
+
+.perk-banner-pax {
+    color: var(--gold);
+}
+
+.perk-banner-cta {
+    flex-shrink: 0;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--border-hover);
+    padding: 9px 20px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+    transition: background var(--transition), color var(--transition), box-shadow var(--transition);
+}
+
+.perk-banner-cta:hover {
+    background: var(--gold);
+    color: #0d0d0d;
+    box-shadow: 0 4px 20px rgba(201, 151, 58, 0.35);
+}
+
+
+
+/* ================================================
+   PAYMENT & BOOKING POLICY SECTION
+   ================================================ */
+
+.policy-section { text-align: center; }
+
+.policy-heading {
+    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.policy-subheading {
+    color: var(--text-muted);
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    margin-bottom: 48px;
+}
+
+.policy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    text-align: left;
+}
+
+.policy-card { display: flex; flex-direction: column; gap: 0; }
+
+.policy-card-desc {
+    color: var(--text-muted);
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.payment-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 4px;
+    border-top: 1px solid var(--border);
+}
+
+.payment-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.payment-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+}
+
+.payment-info { display: flex; flex-direction: column; gap: 2px; }
+
+.payment-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.payment-note {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    letter-spacing: 0.02em;
+}
+
+.policy-deposit-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(201, 151, 58, 0.08);
+    border: 1px solid rgba(201, 151, 58, 0.30);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+.policy-deposit-icon {
+    width: 16px;
+    height: 16px;
+    stroke: var(--gold);
+    stroke-width: 2;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.policy-deposit-banner strong { color: var(--gold-light); }
+
+.policy-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.policy-table thead tr { border-bottom: 1px solid var(--border); }
+
+.policy-table th {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    padding: 8px 8px 10px;
+    text-align: left;
+}
+
+.policy-table td {
+    padding: 11px 8px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    vertical-align: middle;
+}
+
+.policy-table tr:last-child td { border-bottom: none; }
+
+.policy-timing {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+}
+.policy-timing--good { background: rgba(46,125,50,0.14);  color: #6fcf78; border: 1px solid rgba(111,207,120,0.22); }
+.policy-timing--warn { background: rgba(201,151,58,0.12); color: var(--gold); border: 1px solid var(--border); }
+.policy-timing--bad  { background: rgba(180,60,50,0.12);  color: #e07070; border: 1px solid rgba(224,112,112,0.22); }
+
+.policy-refund {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    white-space: nowrap;
+}
+.policy-refund--50   { background: rgba(46,125,50,0.14);  color: #6fcf78; border: 1px solid rgba(111,207,120,0.22); }
+.policy-refund--25   { background: rgba(201,151,58,0.12); color: var(--gold); border: 1px solid var(--border); }
+.policy-refund--none { background: rgba(180,60,50,0.12);  color: #e07070; border: 1px solid rgba(224,112,112,0.22); }
+
+.policy-note {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.policy-link { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; transition: color var(--transition); }
+.policy-link:hover { color: var(--gold-light); }
+
+@media (max-width: 640px) {
+    .policy-grid { grid-template-columns: 1fr; }
+    .policy-table th,
+    .policy-table td { padding: 9px 4px; font-size: 0.75rem; }
+}
+
+/* ── Payment icon brand adjustments ── */
+
+/* Lucide icon (Cash) rendered inside .payment-icon */
+.payment-lucide-icon {
+    width: 20px;
+    height: 20px;
+    stroke: var(--gold);
+    stroke-width: 1.75;
+}
+
+/* Wider card-logo containers (Visa, AmEx, Mastercard) */
+.payment-icon--visa,
+.payment-icon--amex {
+    width: 52px;          /* wider to fit the rectangular card SVG */
+    border-radius: 6px;
+    background: transparent;
+    border-color: transparent;
+    padding: 0;
+}
+
+.payment-icon--mc {
+    width: 48px;
+    border-radius: 6px;
+    background: transparent;
+    border-color: transparent;
+    padding: 0;
+}
+
+/* TnG and DuitNow keep the rounded square look */
+.payment-icon--tng,
+.payment-icon--duitnow {
+    background: transparent;
+    border-color: transparent;
+    padding: 0;
 }

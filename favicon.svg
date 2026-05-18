@@ -1,25 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <circle cx="32" cy="32" r="32" fill="#0d0d0d"/>
-  <circle cx="32" cy="32" r="31" fill="none" stroke="#C9973A" stroke-width="1.2" opacity="0.5"/>
-  <!-- Flame outer -->
-  <path d="M32 10
-    C32 10 44 22 44 33
-    C44 40.5 39.5 46.5 32 48
-    C24.5 46.5 20 40.5 20 33
-    C20 22 32 10 32 10Z"
-    fill="#C9973A" opacity="0.9"/>
-  <!-- Flame inner highlight -->
-  <path d="M32 20
-    C32 20 39 28 39 34
-    C39 38.5 36 42 32 43
-    C28 42 25 38.5 25 34
-    C25 28 32 20 32 20Z"
-    fill="#E8BC6A" opacity="0.85"/>
-  <!-- Flame core -->
-  <path d="M32 28
-    C32 28 36 33 36 36
-    C36 38.2 34.2 40 32 40
-    C29.8 40 28 38.2 28 36
-    C28 33 32 28 32 28Z"
-    fill="#fff8ee" opacity="0.7"/>
+  <!-- Background -->
+  <circle cx="32" cy="32" r="32" fill="#0a1128"/>
+  <!-- Outer Ring -->
+  <circle cx="32" cy="32" r="29" fill="none" stroke="#C9973A" stroke-width="1.5" opacity="0.8"/>
+  
+  <!-- Yakiniku beef slice -->
+  <path d="M 20 26 C 22 22, 42 22, 44 26 C 46 30, 44 38, 38 40 C 32 42, 22 40, 18 34 C 16 30, 18 28, 20 26 Z" fill="#C9973A"/>
+  
+  <!-- Marbling lines (cutout using background color) -->
+  <path d="M 24 28 Q 30 30 34 26 M 24 34 Q 30 33 38 36 M 38 28 Q 40 30 41 33" stroke="#0a1128" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+  
+  <!-- Tiny flame above to signify BBQ/grill -->
+  <path d="M 32 14 C 34 16, 36 18, 32 20 C 28 18, 30 16, 32 14 Z" fill="#C9973A"/>
 </svg>

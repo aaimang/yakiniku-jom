@@ -1,85 +1,129 @@
 /* ================================================
-   chef.js — Interactive Chef Character
+   chef.js — Interactive Chibi Chef Character
    ================================================ */
 (function () {
 
     /* ── SVG markup ── */
-    var SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 200" width="90" height="150">
+    var SVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="-10 0 180 225" overflow="visible" style="width:100%;height:auto;display:block;">
+
   <!-- Shadow -->
-  <ellipse cx="60" cy="196" rx="28" ry="6" fill="rgba(0,0,0,0.25)"/>
+  <ellipse cx="80" cy="220" rx="34" ry="7" fill="rgba(0,0,0,0.18)"/>
 
   <!-- Legs -->
-  <rect x="42" y="148" width="14" height="36" rx="6" fill="#1a1a2e"/>
-  <rect x="64" y="148" width="14" height="36" rx="6" fill="#1a1a2e"/>
+  <rect x="57" y="183" width="16" height="28" rx="7" fill="#2a2a3e"/>
+  <rect x="87" y="183" width="16" height="28" rx="7" fill="#2a2a3e"/>
   <!-- Shoes -->
-  <ellipse cx="49" cy="184" rx="10" ry="5" fill="#111"/>
-  <ellipse cx="71" cy="184" rx="10" ry="5" fill="#111"/>
+  <ellipse cx="65" cy="211" rx="13" ry="6" fill="#111"/>
+  <ellipse cx="95" cy="211" rx="13" ry="6" fill="#111"/>
 
-  <!-- Body / Chef coat -->
-  <rect x="34" y="100" width="52" height="54" rx="10" fill="#f0ede6"/>
-  <!-- Coat lapels -->
-  <path d="M60 104 L48 112 L55 160 L60 155 L65 160 L72 112 Z" fill="#ddd8ce"/>
-  <!-- Buttons -->
-  <circle cx="60" cy="118" r="2.2" fill="#C9973A"/>
-  <circle cx="60" cy="128" r="2.2" fill="#C9973A"/>
-  <circle cx="60" cy="138" r="2.2" fill="#C9973A"/>
-  <!-- Neckerchief -->
-  <path d="M52 103 Q60 114 68 103 Q64 100 60 101 Q56 100 52 103Z" fill="#C9973A"/>
+  <!-- Body / chef coat -->
+  <rect x="42" y="132" width="76" height="56" rx="14" fill="#f5f3ee"/>
+  <!-- Coat centre panel -->
+  <path d="M80 138 L65 154 L70 188 L80 183 L90 188 L95 154 Z" fill="#e8e3d8"/>
+  <!-- Double-breast buttons -->
+  <circle cx="71" cy="154" r="2.8" fill="#C9973A"/>
+  <circle cx="71" cy="166" r="2.8" fill="#C9973A"/>
+  <circle cx="71" cy="178" r="2.8" fill="#C9973A"/>
+  <circle cx="89" cy="154" r="2.8" fill="#C9973A"/>
+  <circle cx="89" cy="166" r="2.8" fill="#C9973A"/>
+  <circle cx="89" cy="178" r="2.8" fill="#C9973A"/>
 
-  <!-- Left arm (holding pan) -->
-  <path d="M34 108 Q14 118 10 132" stroke="#f0ede6" stroke-width="13" stroke-linecap="round" fill="none"/>
-  <!-- Pan -->
-  <ellipse cx="9" cy="138" rx="10" ry="10" fill="#888" stroke="#666" stroke-width="1.5"/>
-  <ellipse cx="9" cy="138" rx="7" ry="7" fill="#aaa" opacity="0.5"/>
-  <line x1="10" y1="128" x2="10" y2="115" stroke="#777" stroke-width="3" stroke-linecap="round"/>
+  <!-- Red neckerchief -->
+  <path d="M67 133 Q80 150 93 133 Q88 127 80 129 Q72 127 67 133Z" fill="#9b1b1b"/>
+  <path d="M78 146 L80 157 L82 146 L80 142Z" fill="#7a1010"/>
 
-  <!-- Right arm (holding spatula) -->
-  <path d="M86 108 Q106 118 110 130" stroke="#f0ede6" stroke-width="13" stroke-linecap="round" fill="none"/>
+  <!-- Left arm -->
+  <path d="M44 146 Q20 158 14 178" stroke="#f5f3ee" stroke-width="18" stroke-linecap="round" fill="none"/>
+  <!-- Left hand -->
+  <circle cx="12" cy="182" r="9" fill="#f9c899"/>
   <!-- Spatula handle -->
-  <line x1="110" y1="130" x2="113" y2="112" stroke="#C9973A" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="6" y1="180" x2="-2" y2="156" stroke="#aaa" stroke-width="5" stroke-linecap="round"/>
   <!-- Spatula head -->
-  <rect x="107" y="104" width="12" height="9" rx="2" fill="#aaa" stroke="#888" stroke-width="1"/>
-  <line x1="109" y1="107" x2="117" y2="107" stroke="#888" stroke-width="1"/>
-  <line x1="109" y1="110" x2="117" y2="110" stroke="#888" stroke-width="1"/>
+  <rect x="-9" y="143" width="20" height="14" rx="3" fill="#bbb" stroke="#888" stroke-width="1.5"/>
+  <line x1="-7" y1="148" x2="9" y2="148" stroke="#999" stroke-width="1"/>
+  <line x1="-7" y1="152" x2="9" y2="152" stroke="#999" stroke-width="1"/>
+
+  <!-- Right arm -->
+  <path d="M116 146 Q140 158 146 178" stroke="#f5f3ee" stroke-width="18" stroke-linecap="round" fill="none"/>
+  <!-- Right hand -->
+  <circle cx="148" cy="182" r="9" fill="#f9c899"/>
+  <!-- Ladle handle -->
+  <line x1="154" y1="178" x2="162" y2="154" stroke="#aaa" stroke-width="5" stroke-linecap="round"/>
+  <!-- Ladle bowl -->
+  <ellipse cx="163" cy="148" rx="10" ry="8" fill="#bbb" stroke="#888" stroke-width="1.5"/>
+  <ellipse cx="163" cy="148" rx="7" ry="5" fill="#ccc" opacity="0.5"/>
 
   <!-- Neck -->
-  <rect x="53" y="90" width="14" height="14" rx="4" fill="#f5cba7"/>
+  <rect x="70" y="120" width="20" height="18" rx="7" fill="#f9c899"/>
+
+  <!-- Hair behind head (sides) -->
+  <ellipse cx="36" cy="100" rx="11" ry="20" fill="#3d2008"/>
+  <ellipse cx="124" cy="100" rx="11" ry="20" fill="#3d2008"/>
 
   <!-- Head -->
-  <ellipse cx="60" cy="72" rx="26" ry="28" fill="#f5cba7"/>
+  <ellipse cx="80" cy="98" rx="46" ry="44" fill="#f9c899"/>
 
-  <!-- Ear left -->
-  <ellipse cx="35" cy="74" rx="5" ry="7" fill="#f0b98a"/>
-  <!-- Ear right -->
-  <ellipse cx="85" cy="74" rx="5" ry="7" fill="#f0b98a"/>
+  <!-- Ears -->
+  <ellipse cx="35" cy="100" rx="8" ry="11" fill="#f5af78"/>
+  <ellipse cx="125" cy="100" rx="8" ry="11" fill="#f5af78"/>
+  <ellipse cx="35" cy="100" rx="5" ry="7" fill="#e8916a"/>
+  <ellipse cx="125" cy="100" rx="5" ry="7" fill="#e8916a"/>
 
-  <!-- Eyes -->
-  <ellipse cx="50" cy="68" rx="5" ry="6" fill="white"/>
-  <ellipse cx="70" cy="68" rx="5" ry="6" fill="white"/>
-  <circle cx="51" cy="69" r="3" fill="#2c1810"/>
-  <circle cx="71" cy="69" r="3" fill="#2c1810"/>
+  <!-- Rosy cheeks -->
+  <ellipse cx="50" cy="114" rx="14" ry="8" fill="#ff9eb5" opacity="0.38"/>
+  <ellipse cx="110" cy="114" rx="14" ry="8" fill="#ff9eb5" opacity="0.38"/>
+
+  <!-- Eye whites -->
+  <ellipse cx="61" cy="96" rx="11" ry="13" fill="white"/>
+  <ellipse cx="99" cy="96" rx="11" ry="13" fill="white"/>
+  <!-- Upper eyelid line -->
+  <path d="M50 86 Q61 80 72 86" stroke="#3d2008" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <path d="M88 86 Q99 80 110 86" stroke="#3d2008" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Irises -->
+  <circle cx="61" cy="97" r="7.5" fill="#6b3a10"/>
+  <circle cx="99" cy="97" r="7.5" fill="#6b3a10"/>
+  <!-- Pupils — cursor tracking targets -->
+  <circle id="chef-pupil-left"  cx="61" cy="97" r="4.8" fill="#180800"/>
+  <circle id="chef-pupil-right" cx="99" cy="97" r="4.8" fill="#180800"/>
   <!-- Eye shine -->
-  <circle cx="52.5" cy="67.5" r="1.2" fill="white"/>
-  <circle cx="72.5" cy="67.5" r="1.2" fill="white"/>
+  <circle cx="65"  cy="92" r="2.8" fill="white"/>
+  <circle cx="103" cy="92" r="2.8" fill="white"/>
+  <circle cx="58"  cy="101" r="1.4" fill="white" opacity="0.55"/>
+  <circle cx="96"  cy="101" r="1.4" fill="white" opacity="0.55"/>
 
   <!-- Eyebrows -->
-  <path d="M45 61 Q50 58 55 61" stroke="#5a3a1a" stroke-width="2" stroke-linecap="round" fill="none"/>
-  <path d="M65 61 Q70 58 75 61" stroke="#5a3a1a" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M52 79 Q61 73 70 79" stroke="#3d2008" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+  <path d="M90 79 Q99 73 108 79" stroke="#3d2008" stroke-width="3.2" stroke-linecap="round" fill="none"/>
 
   <!-- Nose -->
-  <ellipse cx="60" cy="76" rx="4" ry="3" fill="#f0a07a"/>
+  <ellipse cx="80" cy="108" rx="5" ry="3.5" fill="#e8896a" opacity="0.55"/>
 
-  <!-- Mouth (smile) -->
-  <path id="chef-mouth" d="M50 85 Q60 94 70 85" stroke="#c0604a" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+  <!-- Open smile with teeth -->
+  <path d="M64 120 Q80 136 96 120" fill="#c04040"/>
+  <path d="M66 120 Q80 132 94 120 L94 124 Q80 133 66 124Z" fill="white"/>
+  <path d="M64 120 Q80 136 96 120" stroke="#3d2008" stroke-width="1.8" fill="none"/>
+
+  <!-- Hair on forehead (peeking from hat) -->
+  <path d="M46 65 Q54 56 65 53 Q72 50 80 52 Q88 50 95 53 Q106 56 114 65" fill="#3d2008"/>
 
   <!-- Chef hat brim -->
-  <rect x="33" y="47" width="54" height="9" rx="4" fill="white" stroke="#ddd" stroke-width="1"/>
-  <!-- Chef hat top -->
-  <path d="M38 47 Q38 20 60 18 Q82 20 82 47Z" fill="white" stroke="#ddd" stroke-width="1"/>
-  <!-- Hat band (gold) -->
-  <rect x="33" y="47" width="54" height="5" rx="2" fill="#C9973A" opacity="0.7"/>
-  <!-- Hat puff -->
-  <ellipse cx="60" cy="22" rx="16" ry="12" fill="white"/>
+  <rect x="30" y="60" width="100" height="17" rx="8" fill="white" stroke="#d5d1ca" stroke-width="1.5"/>
+  <!-- Gold band -->
+  <rect x="30" y="70" width="100" height="6" rx="3" fill="#C9973A" opacity="0.75"/>
+
+  <!-- Hat puff — layered ellipses for fluffy look -->
+  <ellipse cx="80" cy="40" rx="42" ry="32" fill="#f0eee9"/>
+  <ellipse cx="46" cy="44" rx="22" ry="20" fill="white"/>
+  <ellipse cx="114" cy="44" rx="22" ry="20" fill="white"/>
+  <ellipse cx="80" cy="32" rx="30" ry="26" fill="white"/>
+  <ellipse cx="62" cy="26" rx="20" ry="18" fill="white"/>
+  <ellipse cx="98" cy="26" rx="20" ry="18" fill="white"/>
+  <ellipse cx="80" cy="16" rx="20" ry="18" fill="white"/>
+  <!-- Subtle puff shading -->
+  <ellipse cx="54" cy="54" rx="18" ry="9" fill="#e8e5df" opacity="0.45"/>
+  <ellipse cx="106" cy="54" rx="18" ry="9" fill="#e8e5df" opacity="0.45"/>
+  <ellipse cx="80" cy="56" rx="24" ry="8" fill="#e8e5df" opacity="0.38"/>
+
 </svg>`;
 
     /* ── Bubble messages per context ── */
@@ -151,15 +195,11 @@
     var reactTimer = null;
     function react(type, message) {
         var anim = { menu: "react-jump", book: "react-spin", idle: "react-wiggle" }[type] || "react-nod";
-
         svgWrap.classList.remove("idle", "react-jump", "react-wiggle", "react-nod", "react-spin");
         clearTimeout(reactTimer);
-
-        void svgWrap.offsetWidth; // reflow to restart animation
+        void svgWrap.offsetWidth;
         svgWrap.classList.add(anim);
-
         showBubble(message || rand(MESSAGES[type] || MESSAGES.idle));
-
         reactTimer = setTimeout(function () {
             svgWrap.classList.remove(anim);
             svgWrap.classList.add("idle");
@@ -188,24 +228,16 @@
 
     function getPos() {
         var rect = widget.getBoundingClientRect();
-        return {
-            left:   rect.left,
-            bottom: window.innerHeight - rect.bottom
-        };
+        return { left: rect.left, bottom: window.innerHeight - rect.bottom };
     }
 
     function onDragStart(clientX, clientY) {
         dragging = true;
         var pos  = getPos();
-        startX   = clientX;
-        startY   = clientY;
-        startLeft   = pos.left;
-        startBottom = pos.bottom;
-
+        startX   = clientX; startY = clientY;
+        startLeft = pos.left; startBottom = pos.bottom;
         widget.classList.add("dragging");
         bubble.classList.remove("visible");
-
-        /* Switch from right/bottom anchoring to left/bottom for free movement */
         widget.style.right  = "auto";
         widget.style.left   = startLeft + "px";
         widget.style.bottom = startBottom + "px";
@@ -215,12 +247,8 @@
         if (!dragging) return;
         var dx = clientX - startX;
         var dy = clientY - startY;
-
-        var newLeft   = Math.max(0, Math.min(window.innerWidth  - 100, startLeft   + dx));
-        var newBottom = Math.max(0, Math.min(window.innerHeight - 160, startBottom - dy));
-
-        widget.style.left   = newLeft   + "px";
-        widget.style.bottom = newBottom + "px";
+        widget.style.left   = Math.max(0, Math.min(window.innerWidth  - 120, startLeft   + dx)) + "px";
+        widget.style.bottom = Math.max(0, Math.min(window.innerHeight - 180, startBottom - dy)) + "px";
     }
 
     function onDragEnd() {
@@ -229,50 +257,73 @@
         widget.classList.remove("dragging");
     }
 
-    /* Mouse */
-    svgWrap.addEventListener("mousedown", function (e) {
-        e.preventDefault();
-        onDragStart(e.clientX, e.clientY);
-    });
+    svgWrap.addEventListener("mousedown", function (e) { e.preventDefault(); onDragStart(e.clientX, e.clientY); });
     document.addEventListener("mousemove", function (e) { onDragMove(e.clientX, e.clientY); });
     document.addEventListener("mouseup",   onDragEnd);
 
-    /* Touch */
     svgWrap.addEventListener("touchstart", function (e) {
-        var t = e.touches[0];
-        onDragStart(t.clientX, t.clientY);
+        var t = e.touches[0]; onDragStart(t.clientX, t.clientY);
     }, { passive: true });
     document.addEventListener("touchmove", function (e) {
         if (!dragging) return;
-        var t = e.touches[0];
-        onDragMove(t.clientX, t.clientY);
+        var t = e.touches[0]; onDragMove(t.clientX, t.clientY);
     }, { passive: true });
     document.addEventListener("touchend", onDragEnd);
 
-    /* ── Click reactions ── */
+    /* ── Cursor-following eyes ── */
+    (function setupEyeTracking() {
+        var leftPupil  = document.getElementById("chef-pupil-left");
+        var rightPupil = document.getElementById("chef-pupil-right");
+        var svgEl      = svgWrap.querySelector("svg");
+        if (!leftPupil || !rightPupil || !svgEl) return;
 
-    /* Menu cards */
+        /* Eye centres in SVG viewBox space */
+        var L = { x: 61, y: 97 };
+        var R = { x: 99, y: 97 };
+        var MAX = 4;
+        var VB_W = 180, VB_H = 225;
+
+        function movePupil(pupil, ex, ey, mx, my) {
+            var dx = mx - ex, dy = my - ey;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            if (dist < 0.5) { pupil.setAttribute("cx", ex); pupil.setAttribute("cy", ey); return; }
+            var f = Math.min(1, dist / 40);
+            pupil.setAttribute("cx", ex + (dx / dist) * MAX * f);
+            pupil.setAttribute("cy", ey + (dy / dist) * MAX * f);
+        }
+
+        document.addEventListener("mousemove", function (e) {
+            if (dragging) return;
+            /* offsetLeft/offsetTop ignore CSS transform — stable despite bob animation */
+            var el = svgWrap, ox = 0, oy = 0;
+            while (el) { ox += el.offsetLeft; oy += el.offsetTop; el = el.offsetParent; }
+            var w = svgWrap.offsetWidth;
+            var h = svgWrap.offsetHeight;
+            var scaleX = VB_W / w;
+            var scaleY = VB_H / h;
+            var mx = (e.clientX - ox) * scaleX - 10;
+            var my = (e.clientY - oy) * scaleY;
+            movePupil(leftPupil,  L.x, L.y, mx, my);
+            movePupil(rightPupil, R.x, R.y, mx, my);
+        });
+    })();
+
+    /* ── Click reactions ── */
     document.querySelectorAll(".menu-card").forEach(function (card) {
         card.addEventListener("click", function () { react("menu"); });
     });
 
-    /* WhatsApp / Book buttons */
     var bookSelectors = [
-        "#hero-whatsapp-btn",
-        "#cta-whatsapp-btn",
-        "#cta-menu-btn",
-        "#contact-whatsapp-btn",
-        "#cal-book-btn",
-        ".menu-book-cta .btn-primary",
-        ".cal-book-btn"
+        "#hero-whatsapp-btn", "#cta-whatsapp-btn", "#cta-menu-btn",
+        "#contact-whatsapp-btn", "#cal-book-btn",
+        ".menu-book-cta .btn-primary", ".cal-book-btn"
     ].join(",");
 
     document.querySelectorAll(bookSelectors).forEach(function (btn) {
         btn.addEventListener("click", function () { react("book"); });
     });
 
-    /* Chef itself — tap to say something */
-    svgWrap.addEventListener("click", function (e) {
+    svgWrap.addEventListener("click", function () {
         if (!dragging) react("idle");
     });
 

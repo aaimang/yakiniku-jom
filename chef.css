@@ -67,24 +67,27 @@
 #chef-svg-wrap {
     cursor: grab;
     position: relative;
-    width: 90px;
+    width: 115px;
     transition: transform 0.15s ease;
-    filter: drop-shadow(0 8px 20px rgba(0,0,0,0.6));
+    filter: drop-shadow(0 8px 22px rgba(0,0,0,0.55));
+    /* Allow hat puff and tools to render outside bounding box */
+    overflow: visible;
 }
+#chef-svg-wrap svg { overflow: visible; }
 #chef-svg-wrap:active { cursor: grabbing; }
 
 /* ── Idle bob animation ── */
 @keyframes chefBob {
     0%, 100% { transform: translateY(0px) rotate(0deg); }
-    25%       { transform: translateY(-5px) rotate(1.5deg); }
-    75%       { transform: translateY(-2px) rotate(-1deg); }
+    25%       { transform: translateY(-6px) rotate(1.5deg); }
+    75%       { transform: translateY(-3px) rotate(-1deg); }
 }
 #chef-svg-wrap.idle { animation: chefBob 2.8s ease-in-out infinite; }
 
 /* ── Reaction animations ── */
 @keyframes chefJump {
     0%   { transform: translateY(0) scale(1) rotate(0deg); }
-    30%  { transform: translateY(-18px) scale(1.08) rotate(-4deg); }
+    30%  { transform: translateY(-20px) scale(1.08) rotate(-4deg); }
     60%  { transform: translateY(-10px) scale(1.05) rotate(3deg); }
     100% { transform: translateY(0) scale(1) rotate(0deg); }
 }
@@ -107,19 +110,22 @@
     100% { transform: rotate(360deg) scale(1); }
 }
 
-#chef-svg-wrap.react-jump   { animation: chefJump 0.55s ease forwards; }
-#chef-svg-wrap.react-wiggle { animation: chefWiggle 0.5s ease forwards; }
-#chef-svg-wrap.react-nod    { animation: chefNod 0.45s ease forwards; }
-#chef-svg-wrap.react-spin   { animation: chefSpin 0.6s ease forwards; }
+#chef-svg-wrap.react-jump   { animation: chefJump   0.55s ease forwards; }
+#chef-svg-wrap.react-wiggle { animation: chefWiggle 0.50s ease forwards; }
+#chef-svg-wrap.react-nod    { animation: chefNod    0.45s ease forwards; }
+#chef-svg-wrap.react-spin   { animation: chefSpin   0.60s ease forwards; }
 
 /* ── Dragging state ── */
-#chef-widget.dragging #chef-svg-wrap { animation: none !important; filter: drop-shadow(0 12px 28px rgba(201,151,58,0.35)); }
+#chef-widget.dragging #chef-svg-wrap {
+    animation: none !important;
+    filter: drop-shadow(0 12px 28px rgba(201,151,58,0.35));
+}
 #chef-widget.dragging { opacity: 0.92; }
 
 /* ── Mobile adjustments ── */
 @media (max-width: 640px) {
-    #chef-widget { bottom: 20px; right: 16px; }
-    #chef-svg-wrap { width: 72px; }
-    #chef-bubble { font-size: 0.72rem; max-width: 160px; padding: 8px 12px; }
-    #chef-close { opacity: 1; }
+    #chef-widget  { bottom: 20px; right: 16px; }
+    #chef-svg-wrap { width: 88px; }
+    #chef-bubble  { font-size: 0.72rem; max-width: 160px; padding: 8px 12px; }
+    #chef-close   { opacity: 1; }
 }

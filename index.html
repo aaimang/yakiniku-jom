@@ -20,7 +20,10 @@
         <nav class="site-nav">
             <a href="index.html" class="nav-logo">
                 <img src="favicon.svg" alt="" class="nav-logo-mark" aria-hidden="true">
-                Yakiniku Jom
+                <span class="nav-logo-text">
+                    <span class="logo-main">Yakiniku Jom</span>
+                    <span class="logo-sub">Halal Japanese BBQ</span>
+                </span>
             </a>
             <div class="nav-links">
                 <a href="index.html" class="nav-link active" data-section="hero">Home</a>
@@ -249,111 +252,96 @@
                 <span class="card-icon"><i data-lucide="credit-card"></i></span>
                 <h3>We Accept</h3>
                 <p class="policy-card-desc">Pay whichever way is easiest for you — we support all major methods.</p>
-                <ul class="payment-list">
-
-                    <!-- Cash — Lucide banknote -->
-                    <li class="payment-item">
-                        <span class="payment-icon">
-                            <i data-lucide="banknote" class="payment-lucide-icon"></i>
-                        </span>
-                        <div class="payment-info">
-                            <span class="payment-name">Cash</span>
-                            <span class="payment-note">Malaysian Ringgit (MYR)</span>
+                <div class="payment-categories">
+                    
+                    <!-- Credit / Debit -->
+                    <div class="payment-category">
+                        <h4 class="payment-cat-title">Credit &amp; Debit</h4>
+                        <div class="payment-grid">
+                            <div class="payment-logo-box" aria-label="Visa" title="Visa">
+                                <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="60" height="40" rx="5" fill="#1A1F71"/>
+                                    <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800" font-style="italic" fill="#FFFFFF" letter-spacing="1">VISA</text>
+                                </svg>
+                            </div>
+                            <div class="payment-logo-box" aria-label="Mastercard" title="Mastercard">
+                                <svg viewBox="0 0 50 34" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="50" height="34" rx="4" fill="#252525"/>
+                                    <circle cx="19" cy="17" r="10" fill="#EB001B"/>
+                                    <circle cx="31" cy="17" r="10" fill="#F79E1B"/>
+                                    <path d="M25 9.3a10 10 0 0 1 0 15.4A10 10 0 0 1 25 9.3z" fill="#FF5F00"/>
+                                </svg>
+                            </div>
+                            <div class="payment-logo-box" aria-label="American Express" title="American Express">
+                                <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="60" height="40" rx="5" fill="#2E77BC"/>
+                                    <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="800" fill="#FFFFFF" letter-spacing="1.5">AMEX</text>
+                                </svg>
+                            </div>
+                            <div class="payment-logo-box" aria-label="UnionPay" title="UnionPay">
+                                <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="60" height="40" rx="5" fill="#FFFFFF"/>
+                                    <rect x="6" y="12" width="14" height="16" fill="#E21836" rx="2"/>
+                                    <rect x="23" y="12" width="14" height="16" fill="#003666" rx="2"/>
+                                    <rect x="40" y="12" width="14" height="16" fill="#00A2D4" rx="2"/>
+                                </svg>
+                            </div>
                         </div>
-                    </li>
+                    </div>
 
-                    <!-- Touch 'n Go — blue SVG logo mark -->
-                    <li class="payment-item">
-                        <span class="payment-icon payment-icon--tng">
-                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-label="Touch n Go" role="img" width="28" height="28">
-                                <rect width="40" height="40" rx="8" fill="#1678FB"/>
-                                <!-- Stylised lightning bolt -->
-                                <polygon points="23,6 14,22 20,22 17,34 26,18 20,18" fill="#FFFFFF"/>
-                            </svg>
-                        </span>
-                        <div class="payment-info">
-                            <span class="payment-name">Touch 'n Go (TnG)</span>
-                            <span class="payment-note">eWallet scan-to-pay</span>
+                    <!-- E-Wallet / QR -->
+                    <div class="payment-category">
+                        <h4 class="payment-cat-title">E-Wallet &amp; QR</h4>
+                        <div class="payment-grid">
+                            <div class="payment-logo-box" aria-label="Touch 'n Go" title="Touch 'n Go">
+                                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="8" fill="#1678FB"/>
+                                    <polygon points="23,6 14,22 20,22 17,34 26,18 20,18" fill="#FFFFFF"/>
+                                </svg>
+                            </div>
+                            <div class="payment-logo-box" aria-label="DuitNow QR" title="DuitNow QR">
+                                <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="40" height="40" rx="8" fill="#E8192C"/>
+                                    <rect x="8" y="8" width="9" height="9" rx="1.5" fill="none" stroke="#fff" stroke-width="2"/>
+                                    <rect x="23" y="8" width="9" height="9" rx="1.5" fill="none" stroke="#fff" stroke-width="2"/>
+                                    <rect x="8" y="23" width="9" height="9" rx="1.5" fill="none" stroke="#fff" stroke-width="2"/>
+                                    <rect x="11" y="11" width="3" height="3" fill="#fff"/>
+                                    <rect x="26" y="11" width="3" height="3" fill="#fff"/>
+                                    <rect x="11" y="26" width="3" height="3" fill="#fff"/>
+                                    <rect x="23" y="23" width="3" height="3" fill="#fff"/>
+                                    <rect x="28" y="23" width="3" height="3" fill="#fff"/>
+                                    <rect x="23" y="28" width="3" height="3" fill="#fff"/>
+                                    <rect x="28" y="28" width="3" height="3" fill="#fff"/>
+                                    <rect x="25.5" y="25.5" width="3" height="3" fill="#E8192C"/>
+                                </svg>
+                            </div>
+                            <div class="payment-logo-box" aria-label="GrabPay" title="GrabPay">
+                                <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="60" height="40" rx="5" fill="#00B14F"/>
+                                    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">GrabPay</text>
+                                </svg>
+                            </div>
+                            <div class="payment-logo-box" aria-label="AliPay" title="AliPay">
+                                <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+                                    <rect width="60" height="40" rx="5" fill="#00A1E9"/>
+                                    <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="#FFFFFF">AliPay</text>
+                                </svg>
+                            </div>
                         </div>
-                    </li>
+                    </div>
 
-                    <!-- DuitNow — red/orange QR mark -->
-                    <li class="payment-item">
-                        <span class="payment-icon payment-icon--duitnow">
-                            <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-label="DuitNow QR" role="img" width="28" height="28">
-                                <rect width="40" height="40" rx="8" fill="#E8192C"/>
-                                <!-- QR corner squares -->
-                                <rect x="8"  y="8"  width="9" height="9" rx="1.5" fill="none" stroke="#fff" stroke-width="2"/>
-                                <rect x="23" y="8"  width="9" height="9" rx="1.5" fill="none" stroke="#fff" stroke-width="2"/>
-                                <rect x="8"  y="23" width="9" height="9" rx="1.5" fill="none" stroke="#fff" stroke-width="2"/>
-                                <!-- QR centre dots -->
-                                <rect x="11" y="11" width="3" height="3" fill="#fff"/>
-                                <rect x="26" y="11" width="3" height="3" fill="#fff"/>
-                                <rect x="11" y="26" width="3" height="3" fill="#fff"/>
-                                <!-- Bottom-right QR data lines -->
-                                <rect x="23" y="23" width="3" height="3" fill="#fff"/>
-                                <rect x="28" y="23" width="3" height="3" fill="#fff"/>
-                                <rect x="23" y="28" width="3" height="3" fill="#fff"/>
-                                <rect x="28" y="28" width="3" height="3" fill="#fff"/>
-                                <rect x="25.5" y="25.5" width="3" height="3" fill="#E8192C"/>
-                            </svg>
-                        </span>
-                        <div class="payment-info">
-                            <span class="payment-name">DuitNow QR</span>
-                            <span class="payment-note">Scan with any Malaysian banking app</span>
+                    <!-- Cash -->
+                    <div class="payment-category">
+                        <h4 class="payment-cat-title">Cash</h4>
+                        <div class="payment-grid" style="grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));">
+                            <div class="payment-logo-box payment-logo-cash" aria-label="Cash (MYR)" title="Cash (MYR)">
+                                <i data-lucide="banknote"></i>
+                                <span>MYR</span>
+                            </div>
                         </div>
-                    </li>
+                    </div>
 
-                    <!-- Visa — classic navy wordmark -->
-                    <li class="payment-item">
-                        <span class="payment-icon payment-icon--visa">
-                            <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-label="Visa" role="img" width="36" height="24">
-                                <rect width="60" height="40" rx="5" fill="#1A1F71"/>
-                                <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle"
-                                    font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800"
-                                    font-style="italic" fill="#FFFFFF" letter-spacing="1">VISA</text>
-                            </svg>
-                        </span>
-                        <div class="payment-info">
-                            <span class="payment-name">Visa</span>
-                            <span class="payment-note">Credit &amp; Debit</span>
-                        </div>
-                    </li>
-
-                    <!-- Mastercard — overlapping circles -->
-                    <li class="payment-item">
-                        <span class="payment-icon payment-icon--mc">
-                            <svg viewBox="0 0 50 34" xmlns="http://www.w3.org/2000/svg" aria-label="Mastercard" role="img" width="34" height="24">
-                                <rect width="50" height="34" rx="4" fill="#252525"/>
-                                <circle cx="19" cy="17" r="10" fill="#EB001B"/>
-                                <circle cx="31" cy="17" r="10" fill="#F79E1B"/>
-                                <!-- Overlap blend -->
-                                <path d="M25 9.3a10 10 0 0 1 0 15.4A10 10 0 0 1 25 9.3z" fill="#FF5F00"/>
-                            </svg>
-                        </span>
-                        <div class="payment-info">
-                            <span class="payment-name">Mastercard</span>
-                            <span class="payment-note">Credit &amp; Debit</span>
-                        </div>
-                    </li>
-
-                    <!-- American Express — blue card badge -->
-                    <li class="payment-item">
-                        <span class="payment-icon payment-icon--amex">
-                            <svg viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg" aria-label="American Express" role="img" width="36" height="24">
-                                <rect width="60" height="40" rx="5" fill="#2E77BC"/>
-                                <text x="50%" y="57%" dominant-baseline="middle" text-anchor="middle"
-                                    font-family="Arial, Helvetica, sans-serif" font-size="10" font-weight="800"
-                                    fill="#FFFFFF" letter-spacing="1.5">AMEX</text>
-                            </svg>
-                        </span>
-                        <div class="payment-info">
-                            <span class="payment-name">American Express</span>
-                            <span class="payment-note">Credit Card</span>
-                        </div>
-                    </li>
-
-                </ul>
+                </div>
 
             </div>
 

@@ -7,8 +7,8 @@
     --gold:          #C9973A;
     --gold-light:    #E8BC6A;
     --gold-dim:      rgba(201, 151, 58, 0.18);
-    --bg:            #0d0d0d;
-    --bg-surface:    #141414;
+    --bg:            #0a1128;
+    --bg-surface:    #111a38;
     --bg-card:       rgba(255, 255, 255, 0.04);
     --border:        rgba(201, 151, 58, 0.22);
     --border-hover:  rgba(201, 151, 58, 0.55);
@@ -96,7 +96,7 @@ a   { color: inherit; text-decoration: none; }
 }
 
 .site-header.scrolled {
-    background: rgba(13, 13, 13, 0.88);
+    background: rgba(10, 17, 40, 0.88);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom-color: var(--border);
@@ -112,21 +112,43 @@ a   { color: inherit; text-decoration: none; }
 }
 
 .nav-logo {
-    font-family: 'Playfair Display', serif;
-    font-weight: 700;
-    font-size: 1.2rem;
-    color: var(--gold);
-    letter-spacing: 0.04em;
     display: flex;
     align-items: center;
     gap: 10px;
+    text-decoration: none;
 }
 
 .nav-logo-mark {
-    width: 28px;
-    height: 28px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     flex-shrink: 0;
+    border: 1.5px solid rgba(201,151,58,0.4);
+}
+
+.nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.nav-logo-text .logo-main {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+.nav-logo-text .logo-sub {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 0.6rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.55);
+    margin-top: 3px;
 }
 
 .nav-links {
@@ -234,9 +256,9 @@ a   { color: inherit; text-decoration: none; }
     text-align: center;
     background: linear-gradient(
         to bottom,
-        rgba(13,13,13,0.30) 0%,
-        rgba(13,13,13,0.10) 40%,
-        rgba(13,13,13,0.60) 100%
+        rgba(10,17,40,0.30) 0%,
+        rgba(10,17,40,0.10) 40%,
+        rgba(10,17,40,0.60) 100%
     );
 }
 
@@ -1275,8 +1297,10 @@ a   { color: inherit; text-decoration: none; }
 
     /* Nav — shrink gap and font so 4 links fit */
     .site-nav { padding: 14px 16px; }
-    .nav-logo { font-size: 1rem; gap: 8px; }
-    .nav-logo-mark { width: 22px; height: 22px; }
+    .nav-logo { gap: 8px; }
+    .nav-logo-mark { width: 28px; height: 28px; }
+    .nav-logo-text .logo-main { font-size: 0.85rem; }
+    .nav-logo-text .logo-sub { font-size: 0.52rem; }
     .nav-links { gap: 14px; }
     .nav-link { font-size: 0.7rem; letter-spacing: 0.1em; }
 
@@ -1827,50 +1851,70 @@ a   { color: inherit; text-decoration: none; }
     margin-bottom: 20px;
 }
 
-.payment-list {
-    list-style: none;
+/* ── CATEGORIZED PAYMENT LOGOS ── */
+.payment-categories {
     display: flex;
     flex-direction: column;
-    gap: 0;
-    margin-top: 4px;
-    border-top: 1px solid var(--border);
+    gap: 24px;
+    margin-top: 24px;
 }
 
-.payment-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 14px 0;
-    border-bottom: 1px solid rgba(255,255,255,0.04);
+.payment-cat-title {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
 }
 
-.payment-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+.payment-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(72px, 1fr));
+    gap: 12px;
+}
+
+.payment-logo-box {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
-    flex-shrink: 0;
+    background: var(--bg-surface);
     border: 1px solid var(--border);
-    background: var(--bg-card);
+    border-radius: 8px;
+    height: 52px;
+    padding: 10px;
+    transition: all var(--transition);
+    cursor: default;
 }
 
-.payment-info { display: flex; flex-direction: column; gap: 2px; }
+.payment-logo-box:hover {
+    border-color: var(--border-hover);
+    box-shadow: 0 4px 16px rgba(201, 151, 58, 0.15);
+    transform: translateY(-2px);
+}
 
-.payment-name {
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
+.payment-logo-box svg {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.payment-logo-cash {
+    flex-direction: column;
+    gap: 4px;
     color: var(--text-primary);
-}
-
-.payment-note {
     font-family: 'Raleway', sans-serif;
     font-size: 0.75rem;
-    color: var(--text-dim);
-    letter-spacing: 0.02em;
+    font-weight: 700;
+    padding: 6px;
+}
+.payment-logo-cash i {
+    width: 20px;
+    height: 20px;
+    color: var(--gold);
 }
 
 .policy-deposit-banner {
@@ -1970,40 +2014,4 @@ a   { color: inherit; text-decoration: none; }
     .policy-grid { grid-template-columns: 1fr; }
     .policy-table th,
     .policy-table td { padding: 9px 4px; font-size: 0.75rem; }
-}
-
-/* ── Payment icon brand adjustments ── */
-
-/* Lucide icon (Cash) rendered inside .payment-icon */
-.payment-lucide-icon {
-    width: 20px;
-    height: 20px;
-    stroke: var(--gold);
-    stroke-width: 1.75;
-}
-
-/* Wider card-logo containers (Visa, AmEx, Mastercard) */
-.payment-icon--visa,
-.payment-icon--amex {
-    width: 52px;          /* wider to fit the rectangular card SVG */
-    border-radius: 6px;
-    background: transparent;
-    border-color: transparent;
-    padding: 0;
-}
-
-.payment-icon--mc {
-    width: 48px;
-    border-radius: 6px;
-    background: transparent;
-    border-color: transparent;
-    padding: 0;
-}
-
-/* TnG and DuitNow keep the rounded square look */
-.payment-icon--tng,
-.payment-icon--duitnow {
-    background: transparent;
-    border-color: transparent;
-    padding: 0;
 }
